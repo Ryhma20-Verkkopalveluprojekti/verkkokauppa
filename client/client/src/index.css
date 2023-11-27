@@ -1,13 +1,51 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Tekstit */
+p{
+  color: black;
+  font-family: 'Assistant'; 
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Logo */
+.plantImage {
+  max-width: 100%; 
+  height: auto;
+}
+
+/* navbar*/
+#navbar {
+  background-color: #364d1c !important; 
+  padding-right: 100px !important;
+}
+
+/* navbar -linkit */
+#navbar .navbar-nav .nav-link {
+  color: #ffffff !important; 
+  padding-left: 100px;
+  font-family: 'Assistant';  
+  
+}
+
+
+/* button */
+.btn-primary {
+  background-color: #364d1c !important; 
+  border-color: #364d1c !important; 
+  color: #ffffff !important; 
+  border-radius: 20px !important; 
+  font-family: 'Assistant'; 
+}
+
+
+/* footer*/
+.footer {
+  margin-top: 50px;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  color: black;
+  text-align: center;
+  padding: 15px;
+  bottom: 0;
+  font-family: 'Assistant'; 
+  
 }
