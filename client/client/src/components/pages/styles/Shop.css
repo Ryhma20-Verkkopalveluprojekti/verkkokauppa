@@ -1,0 +1,14 @@
+.btn-custom {
+    background-color: #364d1c !important; 
+    border-color: #364d1c !important; 
+    color: #ffffff !important; 
+    border-radius: 15px !important; 
+    font-family: 'Assistant'; 
+    font-weight: bold !important;
+    margin: 40px;
+  }
+
+  .underline {
+    background-color: #000;
+
+  }
