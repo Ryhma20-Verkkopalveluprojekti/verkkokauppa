@@ -17,9 +17,19 @@ function Home(){
             <Banner />
 
             {/* Logo bannerin alapuolella */}
-            <Logo />
+            
 
-            <Carousel />
+            <div class="row"> 
+            <div class="col-md-4"> 
+            <Logo />
+            </div>
+            <div class="col-md-7"> 
+            <Carousel /> 
+            </div>
+            
+            </div>
+            
+         
 
             {/* Tekstit logon alapuolella */}
 

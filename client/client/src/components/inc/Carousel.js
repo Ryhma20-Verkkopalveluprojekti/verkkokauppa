@@ -4,6 +4,7 @@ import Image2 from '../images/fittonia.jpg';
 import Image3 from '../images/monstera.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import '../pages/styles/Carousel.css';
 
 function CarouselImages(){
   return(
