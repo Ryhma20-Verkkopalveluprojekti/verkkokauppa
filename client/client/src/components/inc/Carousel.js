@@ -1,7 +1,7 @@
 import React from "react";
-import Image1 from '../images/tekokasvi.jpg';
-import Image2 from '../images/palmuvehka_iso.jpg';
-import Image3 from '../images/kaktus.jpg';
+import Image1 from '../images/aloemedium.jpg';
+import Image2 from '../images/fittonia.jpg';
+import Image3 from '../images/monstera.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
