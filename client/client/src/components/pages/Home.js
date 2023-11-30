@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 import VMC from './inc/Vmc';
 import Service1 from '../images/snakeplant.jpg'
 import '../pages/styles/Home.css';
-
+import Carousel from '../inc/Carousel';
 
 function Home(){
     return(
@@ -18,6 +18,8 @@ function Home(){
 
             {/* Logo bannerin alapuolella */}
             <Logo />
+
+            <Carousel />
 
             {/* Tekstit logon alapuolella */}
 

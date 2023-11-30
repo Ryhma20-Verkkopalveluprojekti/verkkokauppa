@@ -38,7 +38,7 @@ function Contactus(){
                             <textarea rows="3" className="form-control" placeholder="Type your message" ></textarea>
                         </div>
                         <div className="form-group py-3">
-                            <button type="button" className="btn btn-primary shadow w-100">Send</button>
+                            <button type="button" className="btn btn-primary shadow w-100" style={{ backgroundColor: "#364d1c", color: "#ffffff" }} >Send</button>
                         </div>
                     </div>
                     <div className="col-md-6">
