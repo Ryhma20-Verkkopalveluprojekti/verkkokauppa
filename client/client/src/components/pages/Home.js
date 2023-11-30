@@ -38,7 +38,10 @@ function Home(){
                 <div className="row">
                 <div className="col-md-12 text-center">
                 <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti maxime laboriosam vitae aliquam assumenda? Laborum laudantium, deleniti cupiditate odio aliquid omnis perspiciatis ipsa repudiandae mollitia ducimus eaque architecto, quia quos
+                We want to welcome you to our website.<br /> At this site you can find more information about us and 
+                you can buy plants online.<br /> If something is unclear we are happy to answer you questions via contact form 
+                you find at the top of this site. <br />
+                We hope you enjoy this website!
                 </p>
                 <Link to="/shop"  className="btn btn shadow" style={{ backgroundColor: "#364d1c", color: "#ffffff" }}> Shop now</Link>
                 </div>
