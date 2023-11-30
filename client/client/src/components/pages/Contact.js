@@ -12,7 +12,7 @@ function Contactus(){
             <Banner />
            
    
-   
+            <p>Heippatirallaa</p>
             <section className="section">
             <div className="container">
             <div className="card shadow">
