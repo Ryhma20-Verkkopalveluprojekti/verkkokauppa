@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { FaShoppingCart } from "react-icons/fa";
+import { FaBasketShopping } from "react-icons/fa6";
+import '../pages/styles/Navbar.css';
 
 
 function Navbar(){
@@ -30,7 +31,7 @@ function Navbar(){
           <Link to="/contact" class="nav-link active" style={{color: '#ffffff', fontSize: '25px' }}>Contact</Link>
         </li>
         <li class="nav-item">
-          <Link to="/cart" class="nav-link active" style={{color: '#ffffff',fontSize: '25px'}}><FaShoppingCart /></Link>
+          <Link to="/cart" class="nav-link active" style={{color: '#ffffff',fontSize: '25px'}}><FaBasketShopping /></Link>
         </li>
       
       </ul>
