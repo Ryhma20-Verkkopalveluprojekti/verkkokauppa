@@ -27,11 +27,15 @@ function Aboutus(){
                                 <img src={Image4} class="d-block w-100" alt="..."></img>
                                 </p>
                             </div>
-
-                            <div className="col-md-4 text-center">
-                                <h1>About us</h1>
+                            {/* Fonttikoko ei suurene??*/}
+                            <div className="col-md-4 text-center"style={{ backgroundColor: "#c7f5cc", fontSize: "60 px" }}>
+                                <h1>About us </h1>
+                               
                                 <p>
-                                    Tähän kirjoiteltaan kuvausta yrityksestä iodflknvdlkfnvbksnvlsknvosklnvdowskv kosldlfxnokldklenm kfokefldk lkfdlk
+                                We are happy that you found your way to our website! 
+                                We are small business from Finland and different kind of houseplants are our passion.
+                                There are three of us working on this business and in the future we hope that
+                                there is a chance to hire more staff to our awesome team!
 
                                 </p>
                             </div>
