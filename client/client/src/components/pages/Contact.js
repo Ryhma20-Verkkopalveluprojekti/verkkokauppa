@@ -1,5 +1,6 @@
 import React from 'react';
 import Banner from '../inc/Banner';
+import Logo from '../inc/logo';
 
 function Contactus(){
     return(
@@ -12,7 +13,7 @@ function Contactus(){
             <Banner />
            
    
-            <p>Heippatirallaa</p>
+            
             <section className="section">
             <div className="container">
             <div className="card shadow">
@@ -27,21 +28,22 @@ function Contactus(){
                         </div>
                         <div className="form-group">
                             <label className="mb-1">Phone number</label>
-                            <input type="text" className="form-control" placeholder="Enter Full Name" /> 
+                            <input type="text" className="form-control" placeholder="Enter Phone Number" /> 
                         </div>
                         <div className="form-group">
                             <label className="mb-1">Email</label>
-                            <input type="text" className="form-control" placeholder="Enter Full Name" /> 
+                            <input type="text" className="form-control" placeholder="Enter Email" /> 
                         </div>
                         <div className="form-group">
                             <label className="mb-1">Message</label>
                             <textarea rows="3" className="form-control" placeholder="Type your message" ></textarea>
                         </div>
                         <div className="form-group py-3">
-                            <button type="button" className="btn btn-primary shadow w-100" style={{ backgroundColor: "#364d1c", color: "#ffffff" }} >Send</button>
+                            <button type="button" className="btn btn shadow w-100" style={{ backgroundColor: "#364d1c", color: "#ffffff" }} >Send</button>
                         </div>
                     </div>
                     <div className="col-md-6">
+                        <Logo />
                         
                         </div>
                 
