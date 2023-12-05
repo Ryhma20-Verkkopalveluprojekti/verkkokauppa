@@ -14,7 +14,7 @@ function Contactus(){
            
            <div className="col-md-12 text-center" style={{fontFamily: 'sans-serif', fontWeight: 'bold', fontSize: '20px', paddingTop: '50px', paddingBottom: '15px' }}>
             <h3>Can't find what you need? Connect us when needed and we will help you!
-                You can leave us a message here.
+                Give us a call or leave a message here.
             </h3>
            </div>
             
