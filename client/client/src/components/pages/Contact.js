@@ -40,7 +40,7 @@ function Contactus(){
                         </div>
                         <div className="form-group">
                             <label className="mb-1">Message</label>
-                            <textarea rows="3" className="form-control" placeholder="Type your message" ></textarea>
+                            <textarea rows="3" className="form-control" placeholder="Type your message..." ></textarea>
                         </div>
                         <div className="form-group py-3">
                             <button type="button" className="btn btn shadow w-100" style={{ backgroundColor: "#364d1c", color: "#ffffff" }} >Send</button>
