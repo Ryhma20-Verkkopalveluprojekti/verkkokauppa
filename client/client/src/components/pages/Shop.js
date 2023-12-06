@@ -1,12 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Banner from '../inc/Banner';
 import { Link } from 'react-router-dom';
 import VMC from './inc/Vmc';
 import snakeplant from '../images/fittonia_small.jpg'
 import '../pages/styles/Shop.css';
+import axios from "axios";
+import { useState } from 'react';
 
 
 function Shop() {
+
+        const [products, setProducts] = useState([]);
+        const [category, setCategory] = useState('Small plants');
+
+
+        useEffect(()=>{
+
+            const params = {
+                category: category
+            }
+
+            axios.get('http://localhost:3001/products', {params: params})
+            .then(resp => setProducts(resp.data))
+            .catch( error => console.log(error.message) );        
+        }, [category]);
+          
+
     return (
 
         <div>
@@ -23,21 +42,27 @@ function Shop() {
 
                                 {/* Kategoria-buttonit */}
                                 <div id="buttons" className="d-flex">
-                                    <button type="button" className="btn btn-custom mr-3">
+                                    <button onClick={()=> setCategory('Small plants')} type="button" className="btn btn-custom mr-3">
                                         Small plants
-                                    </button>
+                                    </button> 
+                                   
 
-                                    <button type="button" className="btn btn-custom mr-3">
+                                    <button onClick={()=> setCategory('Mid-size plants')} type="button" className="btn btn-custom mr-3">
                                         Mid-size plants
                                     </button>
 
-                                    <button type="button" className="btn btn-custom mr-3">
+                                    <button onClick={()=> setCategory('Big plants')} type="button" className="btn btn-custom mr-3">
                                         Big plants
                                     </button>
 
-                                    <button type="button" className="btn btn-custom">
+                                    <button onClick={()=> setCategory('Artificial plants')} type="button" className="btn btn-custom mr-3">
                                         Artificial plants
                                     </button>
+                                    
+                                   {/* <ul>
+                                        { products.map( p => <li key={p.id}>{p.productName}</li> ) }
+                                        </ul> */}
+
                                 </div>
 
                                 {/* Tuotekuvat ja tiedot */}
@@ -47,7 +72,7 @@ function Shop() {
                                 <div className="card shadow">
                                     <img src={snakeplant} className="w-100 border-bottom" alt="Services" />
                                     <div className="card-body">
-                                        <h6>Rehu 1</h6>
+                                        <h6>{ products.slice(0, 1).map(p => <li key={p.id}>{p.productName}</li> ) }</h6>
                                         <div className="underline"></div>
                                         <p>
                                             tekstiä
@@ -61,7 +86,7 @@ function Shop() {
                                 <div className="card shadow">
                                     <img src={snakeplant} className="w-100 border-bottom" alt="Services" />
                                     <div className="card-body">
-                                        <h6>Rehu 2</h6>
+                                        <h6>{ products.slice(1, 2).map(p => <li key={p.id}>{p.productName}</li> ) }</h6>
                                         <div className="underline"></div>
                                         <p>
                                             tekstiä
