@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import Banner from '../inc/Banner';
 import { Link } from 'react-router-dom';
-import VMC from './inc/Vmc';
-import plantimg from '../images/fittonia_small.jpg'
+import snakeplant from '../images/fittonia_small.jpg'
 import '../pages/styles/Shop.css';
 import axios from "axios";
 import { useState } from 'react';
@@ -70,7 +69,7 @@ function Shop() {
                             </div>
                             <div className="col-md-4">
                                 <div className="card shadow">
-                                    <img src={plantimg} className="w-100 border-bottom" alt="Services" />
+                                    <img src={snakeplant} className="w-100 border-bottom" alt="Services" />
                                     <div className="card-body">
                                         <h6>{ products.slice(0, 1).map(p => <li key={p.id}>{p.productName}</li> ) }</h6>
                                         <div className="underline"></div>
@@ -84,7 +83,7 @@ function Shop() {
 
                             <div className="col-md-4">
                                 <div className="card shadow">
-                                    <img src={plantimg} className="w-100 border-bottom" alt="Services" />
+                                    <img src={snakeplant} className="w-100 border-bottom" alt="Services" />
                                     <div className="card-body">
                                         <h6>{ products.slice(1, 2).map(p => <li key={p.id}>{p.productName}</li> ) }</h6>
                                         <div className="underline"></div>
@@ -98,7 +97,7 @@ function Shop() {
 
                             <div className="col-md-4">
                                 <div className="card shadow">
-                                    <img src={plantimg} className="w-100 border-bottom" alt="Services" />
+                                    <img src={snakeplant} className="w-100 border-bottom" alt="Services" />
                                     <div className="card-body">
                                         <h6>Rehu 2</h6>
                                         <div className="underline"></div>
