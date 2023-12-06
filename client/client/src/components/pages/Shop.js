@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import '../pages/styles/Shop.css';
 import axios from "axios";
 import { useState } from 'react';
+import Discount from '../inc/Discount';
 
 
 function Shop() {
@@ -32,8 +33,10 @@ function Shop() {
                 {/* Banneri navbarin alla */}
                 <Banner />
 
+                <Discount/>
 
-                <section className="section bg-c-light">
+
+                <section className="section">
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12 mb-4 text-center">
