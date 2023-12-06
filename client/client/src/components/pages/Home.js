@@ -36,7 +36,7 @@ function Home(){
                 <div className="container">
                 <div className="row">
                 <div className="col-md-12 text-center">
-                <p>
+                <p class="customtext">
                 We want to welcome you to our website.<br /> At this site you can find more information about us and 
                 you can buy plants online.<br /> If something is unclear we are happy to answer you questions via contact form 
                 you find at the top of this site. <br />

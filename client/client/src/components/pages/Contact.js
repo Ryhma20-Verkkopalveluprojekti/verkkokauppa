@@ -1,6 +1,7 @@
 import React from 'react';
 import Banner from '../inc/Banner';
 import Logo from '../inc/logo';
+import '../pages/styles/Contact.css';
 
 function Contactus(){
     return(

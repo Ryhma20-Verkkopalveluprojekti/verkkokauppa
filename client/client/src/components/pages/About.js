@@ -2,10 +2,11 @@ import React from 'react';
 import VMC from './inc/Vmc';
 import Banner from '../inc/Banner';
 import Logo from '../inc/logo';
+import '../pages/styles/About.css';
 
 
-import Image4 from '../images/kultakoynnoskuva.jpg';
-import Image5 from '../images/kasviasetelma2.jpg';
+import Image4 from '../images/kultakoynnoskuvaUUSI.jpg';
+import Image5 from '../images/kasviasetelma2UUSI.jpg';
 
 function Aboutus(){
     return(
@@ -31,7 +32,7 @@ function Aboutus(){
                             <div className="col-md-4 text-center"style={{ backgroundColor: "#c7f5cc", fontSize: "60 px" }}>
                                 <h1>About us </h1>
                                
-                                <p>
+                                <p class="custom">
                                 We are happy that you found your way to our website! 
                                 We are small business from Finland and different kind of houseplants are our passion.
                                 There are three of us working on this business and in the future we hope that
