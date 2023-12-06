@@ -1,7 +1,7 @@
 import React from "react";
-import Image1 from '../images/kasviasetelma.jpg';
-import Image2 from '../images/kasviasetelma2.jpg';
-import Image3 from '../images/kultakoynnoskuva.jpg';
+import Image1 from '../images/kasviasetelmaUUSI.jpg';
+import Image2 from '../images/kasviasetelma2UUSI.jpg';
+import Image3 from '../images/kultakoynnoskuvaUUSI.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import '../pages/styles/Carousel.css';
