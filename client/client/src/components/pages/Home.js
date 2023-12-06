@@ -3,7 +3,6 @@ import Banner from '../inc/Banner';
 import Logo from '../inc/logo';
 import {Link} from 'react-router-dom';
 import VMC from './inc/Vmc';
-import Service1 from '../images/snakeplant.jpg'
 import '../pages/styles/Home.css';
 import Carousel from '../inc/Carousel';
 

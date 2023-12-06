@@ -2,7 +2,7 @@ import React from 'react';
 import Banner from '../inc/Banner';
 import { Link } from 'react-router-dom';
 import VMC from './inc/Vmc';
-import snakeplant from '../images/snakeplant.jpg'
+import snakeplant from '../images/fittonia_small.jpg'
 import '../pages/styles/Shop.css';
 
 

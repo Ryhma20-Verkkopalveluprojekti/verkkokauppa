@@ -4,8 +4,8 @@ import Banner from '../inc/Banner';
 import Logo from '../inc/logo';
 
 
-import Image4 from '../images/palmuvehka_iso.jpg';
-import Image5 from '../images/enkelinsiipi.jpg';
+import Image4 from '../images/kultakoynnoskuva.jpg';
+import Image5 from '../images/kasviasetelma2.jpg';
 
 function Aboutus(){
     return(
