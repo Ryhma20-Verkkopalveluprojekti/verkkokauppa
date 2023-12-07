@@ -6,6 +6,7 @@ import { FaCcMastercard } from "react-icons/fa";
 import { FaApplePay } from "react-icons/fa";
 import { SiAmericanexpress } from "react-icons/si";
 import { SiSamsungpay } from "react-icons/si";
+import Cartcontents from '../inc/Cartcontent';
 
 function ShoppingCart() {
 
@@ -23,6 +24,8 @@ function ShoppingCart() {
 
                 {/* Banneri navbarin alla */}
                 <Banner />
+
+                <Cartcontents />
 
 
                 <section className="section">

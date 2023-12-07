@@ -6,8 +6,8 @@ import axios from "axios";
 import { useState } from 'react';
 import Discount from '../inc/Discount';
 
-
 function Shop() {
+
 
         const [products, setProducts] = useState([]);
         const [category, setCategory] = useState('Small plants');
@@ -76,7 +76,7 @@ function Shop() {
                                         <h6>{ products.slice(0, 1).map(p => <li key={p.id}>{p.productName}</li> ) }</h6>
                                         <div className="underline"></div>
                                         <p>
-                                            tekstiä
+                                        {products.slice(0, 1).map(p => <li key={p.id}>{p.price}</li> ) }
                                         </p>
                                         <Link to="/shop" className="btn btn-link">Shop</Link>
                                     </div>
