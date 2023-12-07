@@ -1,3 +1,4 @@
+//shop-sivun banneri
 import React from "react";
 import discount from '../images/discountbanner.jpg';
 import '../pages/styles/Discount.css';

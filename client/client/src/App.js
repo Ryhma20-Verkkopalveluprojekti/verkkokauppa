@@ -8,7 +8,7 @@ import Cart from './components/pages/Cart';
 import Shop from './components/pages/Shop';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Footer from './components/inc/Footer';
-/*import axios from "axios"; */
+
 
 function App() {
   return (
@@ -37,27 +37,3 @@ function App() {
 
 export default App;
 
-/* Reiman esimerkkikoodi axios luennosta tuotteiden hakemiseen
-
-function App() {
-
-  const [products, setProducts] = useState([]);
-
-  function getProducts(){
-    axios.get('http:/localhost:3001/products')
-    .then(resp => setProducts(resp.data))
-    .catch( error => console.log(error.message));
-  }
-
-  return (
-    <div>
-    <button onClick={getProducts} >Fetch products</button>
-    <ul>
-    {products.map( p => <li key={p.id}>{p.productName}</li ) }
-    <ul>
-    </div>
-  );
-
-}
-
-export default App; */

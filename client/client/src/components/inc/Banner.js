@@ -1,4 +1,5 @@
 //banner picture from pexels.com
+//navbarin alla oleva banneri
 import React from "react";
 import banner from '../images/banner.jpg';
 

@@ -1,3 +1,4 @@
+//etusivun kuvakaruselli
 import React from "react";
 import Image1 from '../images/kasviasetelmaUUSI.jpg';
 import Image2 from '../images/kasviasetelma2UUSI.jpg';

@@ -10,6 +10,7 @@ function Contactus(){
         
         {/* Määrittää sivun korkeuden, jotta footer pysyy sivun alalaidassa */}
         <div className="page-content" style={{ minHeight: '100vh' }}>  
+        
             {/* Banneri navbarin alla */}
             <Banner />
            

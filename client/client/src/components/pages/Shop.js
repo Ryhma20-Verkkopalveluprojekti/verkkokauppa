@@ -32,7 +32,7 @@ function Shop() {
             <div className="page-content" style={{ minHeight: '100vh' }}>
                 {/* Banneri navbarin alla */}
                 <Banner />
-
+                {/* shop-sivun bannerikuva, jossa alennuskoodi*/}
                 <Discount/>
 
 

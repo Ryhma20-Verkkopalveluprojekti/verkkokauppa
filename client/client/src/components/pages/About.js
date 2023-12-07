@@ -1,10 +1,7 @@
 import React from 'react';
-import VMC from './inc/Vmc';
 import Banner from '../inc/Banner';
 import Logo from '../inc/logo';
 import '../pages/styles/About.css';
-
-
 import Image4 from '../images/kultakoynnoskuvaUUSI.jpg';
 import Image5 from '../images/kasviasetelma2UUSI.jpg';
 
@@ -15,10 +12,10 @@ function Aboutus(){
         
         {/* Määrittää sivun korkeuden, jotta footer pysyy sivun alalaidassa */}
         <div className="page-content" style={{ minHeight: '100vh' }}>  
+
             {/* Banneri navbarin alla */}
             <Banner />
            
-            
             
                 <section className="section">
                     <div className="container">
@@ -28,7 +25,6 @@ function Aboutus(){
                                 <img src={Image4} class="d-block w-100" alt="..."></img>
                                 </p>
                             </div>
-                            {/* Fonttikoko ei suurene??*/}
                             <div className="col-md-4 text-center"style={{ backgroundColor: "#c7f5cc", fontSize: "60 px" }}>
                                 <h1>About us </h1>
                                
