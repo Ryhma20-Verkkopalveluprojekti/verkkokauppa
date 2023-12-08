@@ -1,14 +1,30 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Banner from '../inc/Banner';
-import { Link } from 'react-router-dom';
-import '../pages/styles/Shop.css';
 import axios from "axios";
-import { useState } from 'react';
 import Discount from '../inc/Discount';
+
+const ShoppingCart = ({ cartItems }) => (
+    <div>
+        <h2>Shopping Cart</h2>
+        <ul>
+            {cartItems.map(item => (
+                <li key={item.id}>
+                    Product {item.name} (ID: {item.id}) added
+                </li>
+            ))}
+        </ul>
+    </div>
+);
 
 function Shop() {
     const [products, setProducts] = useState([]);
     const [category, setCategory] = useState('Small plants');
+    const [cartItems, setCartItems] = useState([]);
+
+    const addToCart = (productId, productName) => {
+        const newCartItem = { id: productId, name: productName };
+        setCartItems([...cartItems, newCartItem]);
+    };
 
     useEffect(() => {
         const params = {
@@ -20,25 +36,16 @@ function Shop() {
             .catch(error => console.log(error.message));
     }, [category]);
 
-    const addToCart = (productId, productName) => {
-        console.log(`Product ${productName} (ID: ${productId}) added`);
-
-    };
-
     return (
         <div>
-            {/* Määrittää sivun korkeuden, jotta footer pysyy sivun alalaidassa */}
             <div className="page-content" style={{ minHeight: '100vh' }}>
-                      {/* Banneri navbarin alla */}
                 <Banner />
-                     {/* shop-sivun bannerikuva, jossa alennuskoodi*/}
                 <Discount />
-
+                <ShoppingCart cartItems={cartItems} />
                 <section className="section">
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12 mb-4 text-center">
-                                   {/* Kategoria-buttonit */}
                                 <div id="buttons" className="d-flex">
                                     <button onClick={() => setCategory('Small plants')} type="button" className="btn btn-custom mr-3">
                                         Small plants
@@ -60,9 +67,7 @@ function Shop() {
                                     <div className="card shadow">
                                         <img src={'http://localhost:3001/' + p.imageUrl} alt={p.productName} />
                                         <div className="card-body">
-                                            
                                             <h6>{p.productName}</h6>
-                                            
                                             <p>{p.price} euros</p>
                                             <button
                                                 onClick={() => addToCart(p.id, p.productName)}
