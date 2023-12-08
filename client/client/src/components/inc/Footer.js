@@ -1,15 +1,18 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import '../pages/styles/Footer.css';
+import LogoIconimg from './logoicon';
+import NavbarIcon from './Navbarlogo';
 
 function Footer(){
     return(
         
-        <section className="section footer" style={{backgroundColor: '#364d1c'}}>
+        <section className="section footer" style={{backgroundColor: '#284907'}}>
         <div className="container">
           <div className="row" style={{color:'#ffffff'}}>
             <div className="col-md-4 mx-auto">
-              <h6>Company information</h6>
+              <div className="navbar icon" style={{margin: 'auto'}}><NavbarIcon /></div>
+              <h6>Company Information</h6>
               <hr />
               <p className="text-white">
                 Address:          Kasvikatu 1 23405 Kukkakylä<br />

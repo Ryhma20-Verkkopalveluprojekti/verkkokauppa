@@ -2,14 +2,14 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import { FaBasketShopping } from "react-icons/fa6";
 import '../pages/styles/Navbar.css';
-
+import NavbarIcon from './Navbarlogo';
 
 function Navbar(){
     return(
-      <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: "#364d1c"}}>
+      <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: "#284907"}}>
             <div class="container-fluid">
                 
-        <Link to="/" class="navbar-brand" style={{color: '#ffffff', fontSize: '25px'}}>PlantHouse</Link>
+        <Link to="/" class="navbar-brand" style={{color: '#ffffff', fontSize: '25px'}}><NavbarIcon /></Link>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
