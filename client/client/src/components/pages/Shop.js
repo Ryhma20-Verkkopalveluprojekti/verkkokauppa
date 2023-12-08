@@ -1,22 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Banner from '../inc/Banner';
+import { Link } from 'react-router-dom';
+import '../pages/styles/Shop.css';
 import axios from "axios";
+import { useState } from 'react';
 import Discount from '../inc/Discount';
 
-const ShoppingCart = ({ cartItems }) => (
-    <div>
-        <h2>Shopping Cart</h2>
-        <ul>
-            {cartItems.map(item => (
-                <li key={item.id}>
-                    Product {item.name} (ID: {item.id}) added
-                </li>
-            ))}
-        </ul>
-    </div>
-);
+
 
 function Shop() {
+
+    const ShoppingCart = ({ cartItems }) => (
+        <div>
+            <h2>Shopping Cart</h2>
+            <ul>
+                {cartItems.map(item => (
+                    <li key={item.id}>
+                        Product {item.name} (ID: {item.id}) added
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+    
     const [products, setProducts] = useState([]);
     const [category, setCategory] = useState('Small plants');
     const [cartItems, setCartItems] = useState([]);

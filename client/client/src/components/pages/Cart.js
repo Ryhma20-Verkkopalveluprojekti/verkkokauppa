@@ -7,6 +7,7 @@ import { FaApplePay } from "react-icons/fa";
 import { SiAmericanexpress } from "react-icons/si";
 import { SiSamsungpay } from "react-icons/si";
 
+
 function ShoppingCart() {
 
   const visa = '#1a1f71';
@@ -21,7 +22,6 @@ function ShoppingCart() {
                 {/* Banneri navbarin alla */}
                 <Banner />
             
-
 
                 <section className="section">
                     <div className="container">
