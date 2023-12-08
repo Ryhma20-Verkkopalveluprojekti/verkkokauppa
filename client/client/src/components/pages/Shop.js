@@ -33,7 +33,7 @@ function Shop() {
                 <Banner />
                      {/* shop-sivun bannerikuva, jossa alennuskoodi*/}
                 <Discount />
-                
+
                 <section className="section">
                     <div className="container">
                         <div className="row">
@@ -62,7 +62,7 @@ function Shop() {
                                         <div className="card-body">
                                             
                                             <h6>{p.productName}</h6>
-                                            <div className="underline"></div>
+                                            
                                             <p>{p.price} euros</p>
                                             <button
                                                 onClick={() => addToCart(p.id, p.productName)}
