@@ -8,7 +8,7 @@ import Discount from '../inc/Discount';
 
 
 
-function Shop() {
+ function Shop() {
 
     const ShoppingCart = ({ cartItems }) => (
         <div>
