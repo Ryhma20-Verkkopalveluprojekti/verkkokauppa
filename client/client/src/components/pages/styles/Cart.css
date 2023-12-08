@@ -7,4 +7,20 @@
 /*ostoskorin sisältö*/
 .section{
     margin-top: 20px;
+
+}
+
+h2{
+    font-family: 'Assistant' !important; 
+    font-weight: bold  !important;
+}
+
+li{
+    font-family: 'Assistant' !important; 
+    font-size: 25px;
+}
+
+.total-text {
+    font-family: 'Assistant' !important; 
+    font-size: 25px !important;
 }

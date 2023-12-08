@@ -24,7 +24,6 @@ function ShoppingCart({ cartItems }) {
     <div>
       {/* Määrittää sivun korkeuden, jotta footer pysyy sivun alalaidassa */}
       <div className="page-content" style={{ minHeight: '100vh' }}>
-        
         {/* Banneri navbarin alla */}
         <Banner />
 
@@ -44,7 +43,7 @@ function ShoppingCart({ cartItems }) {
                     ))}
                 </ul>
                 <div>
-                  <p>Total: {calculateTotal()} euros</p>
+                  <p className="total-text">Total: {calculateTotal()} euros</p>
                 </div>
               </div>
 
