@@ -10,6 +10,7 @@ import Footer from './components/inc/Footer';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
+  //piilottaa ostoskorin näyttämisen shop.js sivulta, näytetään vain cart.js sivulla
   const [isCartVisible, setCartVisibility] = useState(false);
 
   return (
