@@ -6,9 +6,10 @@ import { FaCcMastercard } from "react-icons/fa";
 import { FaApplePay } from "react-icons/fa";
 import { SiAmericanexpress } from "react-icons/si";
 import { SiSamsungpay } from "react-icons/si";
+import Shop from '../pages/Shop.js';
 
 
-function ShoppingCart() {
+function ShoppingCart({cartItems}) {
 
   const visa = '#1a1f71';
   const paypal = '#003087';
@@ -21,7 +22,9 @@ function ShoppingCart() {
 
                 {/* Banneri navbarin alla */}
                 <Banner />
-            
+
+                <h2>Shopping Cart {cartItems}</h2>
+                         
 
                 <section className="section">
                     <div className="container">

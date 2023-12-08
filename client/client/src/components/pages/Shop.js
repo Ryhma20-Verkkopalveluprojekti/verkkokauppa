@@ -5,6 +5,7 @@ import '../pages/styles/Shop.css';
 import axios from "axios";
 import { useState } from 'react';
 import Discount from '../inc/Discount';
+import  ShoppingCart from '../pages/Cart.js';
 
 
 
