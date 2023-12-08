@@ -9,12 +9,9 @@ import { SiSamsungpay } from "react-icons/si";
 
 function ShoppingCart() {
 
-
-    const visa = '#1a1f71';
-    const paypal = '#003087';
-    const mastercard = '#eb001b';
-
-
+  const visa = '#1a1f71';
+  const paypal = '#003087';
+  const mastercard = '#eb001b';
 
     return (
         <div>
@@ -23,7 +20,6 @@ function ShoppingCart() {
 
                 {/* Banneri navbarin alla */}
                 <Banner />
-
             
 
 
