@@ -6,7 +6,10 @@ import axios from "axios";
 import { useState } from 'react';
 import Discount from '../inc/Discount';
 
-function Shop({ setCartItems, cartItems }) {
+
+
+function Shop() {
+
     const ShoppingCart = ({ cartItems }) => (
         <div>
           
