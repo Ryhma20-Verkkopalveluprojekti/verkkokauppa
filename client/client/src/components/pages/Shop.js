@@ -33,7 +33,7 @@ function Shop() {
                 <Banner />
                      {/* shop-sivun bannerikuva, jossa alennuskoodi*/}
                 <Discount />
-
+                
                 <section className="section">
                     <div className="container">
                         <div className="row">
@@ -49,7 +49,7 @@ function Shop() {
                                     <button onClick={() => setCategory('Big plants')} type="button" className="btn btn-custom mr-3">
                                         Big plants
                                     </button>
-                                    <button onClick={() => setCategory('Artificial plants')} type="button" className="btn btn-custom mr-3">
+                                    <button onClick={() => setCategory('Artificial plants')} type="button" className="btn btn-custom mr-3" >
                                         Artificial plants
                                     </button>
                                 </div>
@@ -60,15 +60,14 @@ function Shop() {
                                     <div className="card shadow">
                                         <img src={'http://localhost:3001/' + p.imageUrl} alt={p.productName} />
                                         <div className="card-body">
+                                            
                                             <h6>{p.productName}</h6>
                                             <div className="underline"></div>
-                                            <p>tekstiä</p>
+                                            <p>{p.price} euros</p>
                                             <button
                                                 onClick={() => addToCart(p.id, p.productName)}
-                                                className="btn btn-link"
-                                            >
-                                                Add to cart
-                                            </button>
+                                                type="button" className="btn btn-custom mr-3"
+                                            >Add to cart</button>
                                         </div>
                                     </div>
                                 </div>
