@@ -72,7 +72,7 @@ function Shop({ setCartItems, cartItems }) {
                             {products.map(p => (
                                 <div key={p.id} className="col-md-4">
                                     <div className="card shadow">
-                                        <img src={'http://localhost:3001/' + p.imageUrl} alt={p.productName} />
+                                        <img src={'http://localhost:3001/' + p.imageUrl} alt={p.productName} className="product-image" />
                                         <div className="card-body">
                                             <h6>{p.productName}</h6>
                                             <p>{p.price} euros</p>

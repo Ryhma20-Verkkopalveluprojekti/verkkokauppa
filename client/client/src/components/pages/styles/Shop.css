@@ -13,4 +13,9 @@
 
   }
 
- 
+  /*tuotekuvien koot */
+  .product-image {
+  object-fit:scale-down;
+  width:auto;
+  height: 350px;
+}
