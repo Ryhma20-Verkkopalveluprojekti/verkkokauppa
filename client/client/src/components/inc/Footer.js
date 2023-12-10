@@ -12,8 +12,6 @@ function Footer(){
           <div className="row" style={{color:'#ffffff'}}>
             <div className="col-md-4 mx-auto">
               <div className="navbar icon" style={{margin: 'auto'}}><NavbarIcon /></div>
-              <h6>Company Information</h6>
-              <hr />
               <p className="text-white">
                 Address:          Kasvikatu 1 23405 Kukkakylä<br />
                 Telephone:        +358 1234567<br />
