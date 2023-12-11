@@ -22,13 +22,13 @@ function Aboutus(){
                         <div className="row">
                             <div className="col-md-4 text-center">
                                 <p>
-                                <img src={Image4} class="d-block w-100" alt="..."></img>
+                                <img src={Image4} className="d-block w-100" alt="..."></img>
                                 </p>
                             </div>
                             <div className="col-md-4 text-center"style={{ backgroundColor: "#c7f5cc", fontSize: "60 px" }}>
                                 <h1>About us </h1>
                                
-                                <p class="custom">
+                                <p className="custom">
                                 We are happy that you found your way to our website! 
                                 We are small business from Finland and different kind of houseplants are our passion.
                                 There are three of us working on this business and in the future we hope that
@@ -39,7 +39,7 @@ function Aboutus(){
 
                             <div className="col-md-4 text-center">
                                 <p>
-                                   <img src={Image5} class="d-block w-100" alt="..."></img>
+                                   <img src={Image5} className="d-block w-100" alt="..."></img>
                                 </p>
                             </div>
                         </div>

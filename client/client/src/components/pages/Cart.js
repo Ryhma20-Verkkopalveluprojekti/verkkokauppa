@@ -36,12 +36,12 @@ function ShoppingCart({ cartItems }) {
                             <div className="col-md-6">
                                 <h2>Shopping Cart</h2>
                                 <ul>
-                                    {cartItems &&
-                                        cartItems.map((item) => (
-                                            <li key={item.id}>
-                                                {item.name} - {item.price} euros
-                                            </li>
-                                        ))}
+                                {cartItems &&
+                                cartItems.map((item, index) => (
+                                <li key={`${item.id}-cart-${index}`}>
+                                 {item.name} - {item.price} euros
+                                </li>
+                                 ))}
                                 </ul>
                                 <div>
                                      {/*Näyttää yhteissumman tässä*/ }

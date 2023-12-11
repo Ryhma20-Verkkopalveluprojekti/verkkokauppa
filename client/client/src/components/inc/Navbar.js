@@ -5,33 +5,34 @@ import '../pages/styles/Navbar.css';
 import NavbarIcon from './Navbarlogo';
 
 function Navbar(){
+
     return(
       <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: "#284907"}}>
-            <div class="container-fluid">
+            <div className="container-fluid">
                 
-        <Link to="/" class="navbar-brand" style={{color: '#ffffff', fontSize: '25px'}}><NavbarIcon /></Link>
+        <Link to="/" className="navbar-brand" style={{color: '#ffffff', fontSize: '25px'}}><NavbarIcon /></Link>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
         </button>
 
     
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <Link to="/" class="nav-link active" style={{color: '#ffffff', fontSize: '25px' }}>Home</Link>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li className="nav-item">
+          <Link to="/" className="nav-link active" style={{color: '#ffffff', fontSize: '25px' }}>Home</Link>
         </li>
-        <li class="nav-item">
-          <Link to="/shop" class="nav-link active" style={{color: '#ffffff', fontSize: '25px' }}>Shop</Link>
+        <li className="nav-item">
+          <Link to="/shop" className="nav-link active" style={{color: '#ffffff', fontSize: '25px' }}>Shop</Link>
         </li>
-        <li class="nav-item">
-          <Link to="/about" class="nav-link active" style={{color: '#ffffff', fontSize: '25px' }} >About</Link>
+        <li className="nav-item">
+          <Link to="/about" className="nav-link active" style={{color: '#ffffff', fontSize: '25px' }} >About</Link>
         </li>
-        <li class="nav-item">
-          <Link to="/contact" class="nav-link active" style={{color: '#ffffff', fontSize: '25px' }}>Contact</Link>
+        <li className="nav-item">
+          <Link to="/contact" className="nav-link active" style={{color: '#ffffff', fontSize: '25px' }}>Contact</Link>
         </li>
-        <li class="nav-item">
-          <Link to="/cart" class="nav-link active" style={{color: '#ffffff',fontSize: '25px'}}><FaBasketShopping /></Link>
+        <li className="nav-item">
+          <Link to="/cart" className="nav-link active" style={{color: '#ffffff',fontSize: '25px'}}><FaBasketShopping /></Link>
         </li>
       
       </ul>

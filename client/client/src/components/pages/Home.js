@@ -17,11 +17,11 @@ function Home(){
             {/* Logo bannerin alapuolella */}
             
 
-            <div class="row"> 
-            <div class="col-md-4"> 
+            <div className="row"> 
+            <div className="col-md-4"> 
             <Logo />
             </div>
-            <div class="col-md-7"> 
+            <div className="col-md-7"> 
             <Carousel /> 
             </div>
             
@@ -35,7 +35,7 @@ function Home(){
                 <div className="container">
                 <div className="row">
                 <div className="col-md-12 text-center">
-                <p class="customtext">
+                <p className="customtext">
                 We want to welcome you to our website.<br /> At this site you can find more information about us and 
                 you can buy plants online.<br /> If something is unclear we are happy to answer you questions via contact form 
                 you find at the top of this site. <br />
