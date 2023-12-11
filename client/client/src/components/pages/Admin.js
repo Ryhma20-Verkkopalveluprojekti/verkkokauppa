@@ -2,8 +2,21 @@ import React from 'react';
 import Banner from '../inc/Banner';
 import Logo from '../inc/logo';
 import '../pages/styles/Admin.css';
+import axios from 'axios';
 
 function Admin(){
+
+    function sendCategories(){
+        const data = [
+            {categoryName: 'Pakastimet', description: 'Reiman huonoja vitsejä'},
+            
+        ]
+
+            axios.post('http://localhost:3001/categories', data)
+            .then (resp => console.log(resp.data))
+            .catch ( error => console.log(error.response.data) );
+    }
+
     return(
 
         <div>
@@ -37,7 +50,7 @@ function Admin(){
                         </div>
                     
                         <div className="form-group py-3">
-                            <button type="button" className="btn btn shadow w-100" style={{ backgroundColor: "#364d1c", color: "#ffffff" }} >Add</button>
+                        <button onClick={sendCategories} type="button" className="btn btn-custom mr-3">Add</button>
                         </div>
                     </div>
                     <div className="col-md-6">
