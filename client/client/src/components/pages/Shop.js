@@ -28,7 +28,6 @@ function Shop({ setCartItems, cartItems }) {
 
     const addToCart = (productId, productName, productPrice) => {
         const newCartItem = { id: productId, name: productName, price: productPrice };
-        console.log('Adding to cart:', newCartItem);
         setCartItems((prevItems) => [...prevItems, newCartItem]);
     };
 

@@ -16,7 +16,7 @@ function App() {
   return (
     <Router>
       <div>
-        <Navbar />
+        <Navbar cartItems={cartItems} />
         <Routes>
           <Route
             exact

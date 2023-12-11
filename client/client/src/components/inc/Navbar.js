@@ -4,7 +4,8 @@ import { FaBasketShopping } from "react-icons/fa6";
 import '../pages/styles/Navbar.css';
 import NavbarIcon from './Navbarlogo';
 
-function Navbar(){
+function Navbar({ cartItems }){
+
 
     return(
       <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: "#284907"}}>
@@ -32,8 +33,18 @@ function Navbar(){
           <Link to="/contact" className="nav-link active" style={{color: '#ffffff', fontSize: '25px' }}>Contact</Link>
         </li>
         <li className="nav-item">
-          <Link to="/cart" className="nav-link active" style={{color: '#ffffff',fontSize: '25px'}}><FaBasketShopping /></Link>
+        <Link to="/cart" className="nav-link active" style={{ color: '#ffffff', fontSize: '25px' }}>
+        <FaBasketShopping />
+        {/* Näyttää ostoskorikuvakkeen vieressä tuotteiden lukumäärän*/}
+        {cartItems.length > 0 && 
+        <span className='product-count' style={{ fontSize: '18px', marginLeft: '5px' }}>
+        {cartItems.length}
+  </span>
+}
+  
+</Link>
         </li>
+        
       
       </ul>
       
