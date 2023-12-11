@@ -8,14 +8,12 @@ import Discount from '../inc/Discount';
 import  ShoppingCart from '../pages/Cart.js';
 
 
-
- function Shop() {
-
+{/*Ostoskori, app.js tiedostoon lisätty määritys joka piilottaa ostoskori näkymän tältä sivulta, näkyy vain cart.js sivulla*/ }
+function Shop({ setCartItems, cartItems }) {
     const ShoppingCart = ({ cartItems }) => (
         <div>
-            <h2>Shopping Cart</h2>
             <ul>
-                {cartItems.map(item => (
+                {cartItems && cartItems.map(item => (
                     <li key={item.id}>
                         Product {item.name} (ID: {item.id}) added
                     </li>
@@ -23,16 +21,18 @@ import  ShoppingCart from '../pages/Cart.js';
             </ul>
         </div>
     );
-    
+
     const [products, setProducts] = useState([]);
     const [category, setCategory] = useState('Small plants');
-    const [cartItems, setCartItems] = useState([]);
 
-    const addToCart = (productId, productName) => {
-        const newCartItem = { id: productId, name: productName };
-        setCartItems([...cartItems, newCartItem]);
+    {/* Tuotteiden lisääminen ostoskoriin*/ }
+
+    const addToCart = (productId, productName, productPrice) => {
+        const newCartItem = { id: productId, name: productName, price: productPrice };
+        setCartItems((prevItems) => [...prevItems, newCartItem]);
     };
 
+    {/* Tuotekategorian valitseminen/näyttäminen*/ }
     useEffect(() => {
         const params = {
             category: category
@@ -68,18 +68,23 @@ import  ShoppingCart from '../pages/Cart.js';
                                     </button>
                                 </div>
                             </div>
-
+                            {/*Haetaan tietokannasta tuotteen nimi, kuva ja hinta*/}
                             {products.map(p => (
                                 <div key={p.id} className="col-md-4">
                                     <div className="card shadow">
-                                        <img src={'http://localhost:3001/' + p.imageUrl} alt={p.productName} />
+                                        <img src={'http://localhost:3001/' + p.imageUrl} alt={p.productName} className="product-image" />
                                         <div className="card-body">
                                             <h6>{p.productName}</h6>
                                             <p>{p.price} euros</p>
+                                            {/*Button joka lisää tuotteet ostoskoriin*/}
                                             <button
-                                                onClick={() => addToCart(p.id, p.productName)}
+                                                onClick={async () => {
+                                                    await addToCart(p.id, p.productName, p.price);
+                                                }}
                                                 type="button" className="btn btn-custom mr-3"
-                                            >Add to cart</button>
+                                            >
+                                                Add to cart
+                                            </button>
                                         </div>
                                     </div>
                                 </div>

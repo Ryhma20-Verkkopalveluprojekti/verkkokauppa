@@ -1,0 +1,29 @@
+/*tilauslomake*/
+.card {
+    margin-top: 20px;
+    padding: 5px;
+
+}
+/*ostoskorin sisältö*/
+.section{
+    margin-top: 20px;
+
+}
+
+/*Shopping cart-otsikko*/
+h2{
+    font-family: 'Assistant' !important; 
+    font-weight: bold  !important;
+}
+
+/*Tuotteet*/
+li{
+    font-family: 'Assistant' !important; 
+    font-size: 25px;
+}
+
+/*Yhteissumma teksti*/
+.total-text {
+    font-family: 'Assistant' !important; 
+    font-size: 25px !important;
+}
