@@ -3,19 +3,31 @@ import Banner from '../inc/Banner';
 import Logo from '../inc/logo';
 import '../pages/styles/Admin.css';
 import axios from 'axios';
+import { useState } from 'react';
 
 function Admin(){
 
-    function sendCategories(){
-        const data = [
-            {categoryName: 'Pakastimet', description: 'Reiman huonoja vitsejä'},
-            
-        ]
+    const [categoryName, setCategoryName] = useState('');   
+    const [categoryDescription, setCategoryDescription] = useState('');
 
-            axios.post('http://localhost:3001/categories', data)
-            .then (resp => console.log(resp.data))
-            .catch ( error => console.log(error.response.data) );
-    }
+    function sendCategories() {
+        const data = [
+          {
+            categoryName: categoryName,
+            description: categoryDescription,
+          },
+        ];
+       
+        axios
+          .post('http://localhost:3001/categories', data)
+          .then((resp) => {
+          console.log(resp.data)
+          //tyhjennetään kentät
+          setCategoryName('');
+          setCategoryDescription('');
+          })
+          .catch((error) => console.log(error.response.data));
+      }
 
     return(
 
@@ -42,11 +54,11 @@ function Admin(){
                         <hr />
                         <div className="form-group">
                             <label className="mb-1">Category name</label>
-                            <input type="text" className="form-control" placeholder="Enter category name" /> 
+                            <input type="text" className="form-control" placeholder="Enter category name" value={categoryName} onChange={(e) => setCategoryName(e.target.value)} /> 
                         </div>
                         <div className="form-group">
                             <label className="mb-1">Category description</label>
-                            <input type="text" className="form-control" placeholder="Enter category description" /> 
+                            <input type="text" className="form-control" placeholder="Enter category description" value={categoryDescription} onChange={(e) => setCategoryDescription(e.target.value)} /> 
                         </div>
                     
                         <div className="form-group py-3">
