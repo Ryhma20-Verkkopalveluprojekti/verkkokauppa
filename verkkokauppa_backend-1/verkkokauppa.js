@@ -160,8 +160,9 @@ app.post('/order', async (req, res) => {
         connection.beginTransaction();
 
         const order = req.body;
+        const date = new Date();
         
-        const [info] = await connection.execute("INSERT INTO customer_order (order_date, customer_id) VALUES (NOW(),?)",[order.customerId]);
+        const [info] = await connection.execute("INSERT INTO customer_order (order_date, customer_id) VALUES (?,?)",[date, order.customerId]);
         
         const orderId = info.insertId;
 
