@@ -7,6 +7,12 @@ import { FaApplePay } from 'react-icons/fa';
 import { SiAmericanexpress } from 'react-icons/si';
 import { SiSamsungpay } from 'react-icons/si';
 import '../pages/styles/Cart.css';
+import Order from '../inc/Order';
+
+
+
+
+
  
 function ShoppingCart({ cartItems }) {
  
@@ -16,9 +22,14 @@ function ShoppingCart({ cartItems }) {
     const mastercard = '#eb001b';
  
     {/* Laskee ostoskorin yhteissumman*/ }
+    
     const calculateTotal = () => {
-        return cartItems.reduce((total, item) => total + parseFloat(item.price), 0).toFixed(2);
+        // Lasketaan summa käymällä läpi ostoskorin ja lisäämällä tuotteiden hinta kertaa määrä
+        const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+        return total;
     };
+
+
  
     return (
         <div>
@@ -39,7 +50,7 @@ function ShoppingCart({ cartItems }) {
                                 {cartItems &&
                                 cartItems.map((item, index) => (
                                 <li key={`${item.id}-cart-${index}`}>
-                                 {item.name} - {item.price} euros
+                                 {item.productName} - {item.price} euros x {item.quantity}
                                 </li>
                                  ))}
                                 </ul>
@@ -100,7 +111,7 @@ function ShoppingCart({ cartItems }) {
                                                 </label>
                                             </div>
                                             <div className="form-group py-3">
-                                                <button type="button" className="btn btn shadow w-100" style={{ backgroundColor: "#364d1c", color: "#ffffff" }} >Checkout</button>
+                                              <Order cartItems={cartItems}/>
                                             </div>
                                         </div>
                                         <div className="col-md-11 text-right">

@@ -12,25 +12,37 @@ import  ShoppingCart from '../pages/Cart.js';
 function Shop({ setCartItems, cartItems }) {
     const ShoppingCart = ({ cartItems }) => (
         <div>
-            <ul>
+           {/* <ul>
                 {cartItems && cartItems.map(item => (
-                    <li key={item.id}>
+                   <li key={item.id}>
                         Product {item.name} (ID: {item.id}) added
-                    </li>
+                </li> 
                 ))}
-            </ul>
+                </ul>*/}
         </div>
     );
-
+    
     const [products, setProducts] = useState([]);
     const [category, setCategory] = useState('Small plants');
 
     {/* Tuotteiden lisääminen ostoskoriin*/ }
 
-    const addToCart = (productId, productName, productPrice) => {
-        const newCartItem = { id: productId, name: productName, price: productPrice };
-        setCartItems((prevItems) => [...prevItems, newCartItem]);
-    };
+    // const addToCart = (productId, productName, productPrice) => {
+    //     const newCartItem = { id: productId, name: productName, price: productPrice };
+    //     setCartItems((prevItems) => [...prevItems, newCartItem]);
+    // };
+
+    function updateProductCart(product){
+        const cItems = [...cartItems];
+        const prod = cItems.find( p => p.id === product.id );
+
+        if( prod ){
+            prod.quantity++;
+            setCartItems(cItems);
+        }else{
+            setCartItems((prevItems) => [...prevItems, {...product, quantity: 1}]);
+        }
+    }
 
     {/* Tuotekategorian valitseminen/näyttäminen*/ }
     useEffect(() => {
@@ -78,8 +90,8 @@ function Shop({ setCartItems, cartItems }) {
                                             <p>{p.price} euros</p>
                                             {/*Button joka lisää tuotteet ostoskoriin*/}
                                             <button
-                                                onClick={async () => {
-                                                    await addToCart(p.id, p.productName, p.price);
+                                                onClick={() => {
+                                                    updateProductCart(p);
                                                 }}
                                                 type="button" className="btn btn-custom mr-3"
                                             >

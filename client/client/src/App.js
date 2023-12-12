@@ -9,6 +9,7 @@ import Shop from './components/pages/Shop';
 import Footer from './components/inc/Footer';
 import Admin from './components/pages/Admin';
 import Vote from './components/pages/Vote';
+import Order from './components/inc/Order';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -36,6 +37,7 @@ function App() {
           <Route
             path="/shop"
             element={<Shop
+              cartItems={cartItems}
               setCartItems={setCartItems}
               setCartVisibility={setCartVisibility}
             />}
@@ -53,6 +55,12 @@ function App() {
           <Route
             path="/vote"
             element={<Vote />}
+          />
+
+          <Route 
+            path="/order"
+            element={<Order />}
+            
           />
 
         </Routes>
