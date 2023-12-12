@@ -8,6 +8,7 @@ import Cart from './components/pages/Cart';
 import Shop from './components/pages/Shop';
 import Footer from './components/inc/Footer';
 import Admin from './components/pages/Admin';
+import Vote from './components/pages/Vote';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -47,6 +48,11 @@ function App() {
           <Route
             path="/admin"
             element={<Admin />}
+          />
+
+          <Route
+            path="/vote"
+            element={<Vote />}
           />
 
         </Routes>

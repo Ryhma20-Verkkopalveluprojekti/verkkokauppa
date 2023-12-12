@@ -42,6 +42,15 @@ function Home(){
                 We hope you enjoy this website!
                 </p>
                 <Link to="/shop"  className="btn btn shadow" style={{ backgroundColor: "#364d1c", color: "#ffffff" }}> Shop now</Link>
+                <br></br>
+                <br></br>
+                <p className="customtext">
+                Here you can vote your favorite plant. This helps us to target discounts!
+                </p>
+            
+                <Link to="/vote"  className="btn btn shadow" style={{ backgroundColor: "#364d1c", color: "#ffffff" }}> Vote your favorite plant!</Link>
+                
+
                 </div>
                 </div>
                 </div>

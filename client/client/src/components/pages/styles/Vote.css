@@ -1,0 +1,17 @@
+h3{
+    font-family: 'Assistant' !important; 
+    font-size: 30px !important;
+    
+    
+}
+
+.section .card-body h6{
+    font-family: 'Assistant' !important;
+    font-size: 25px !important;
+    
+}
+
+.form-group label, .form-group input, .form-group textarea, .form-group button{
+    font-family: 'Assistant' !important;
+    font-size: 25px !important;
+}
