@@ -8,6 +8,7 @@ import Cart from './components/pages/Cart';
 import Shop from './components/pages/Shop';
 import Footer from './components/inc/Footer';
 import Admin from './components/pages/Admin';
+import Newsletter from './components/pages/SubscribeNewsletter';
 import Vote from './components/pages/Vote';
 import Order from './components/inc/Order';
 
@@ -63,6 +64,11 @@ function App() {
             
           />
 
+            <Route 
+            path="/newsletter"
+            element={<Newsletter />}
+            
+          />
         </Routes>
         <Footer />
       </div>
