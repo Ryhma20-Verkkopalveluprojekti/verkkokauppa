@@ -12,6 +12,8 @@ import Newsletter from './components/pages/SubscribeNewsletter';
 import Vote from './components/pages/Vote';
 import Order from './components/inc/Order';
 import SignUp from './components/pages/SignUp';
+import Stores from './components/pages/stores';
+
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -74,6 +76,10 @@ function App() {
             path="/signup"
             element={<SignUp />}
           />  
+           <Route 
+            path="/stores"
+            element={<Stores />}
+          /> 
         </Routes>
         <Footer />
       </div>

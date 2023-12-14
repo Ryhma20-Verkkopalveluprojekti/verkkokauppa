@@ -1,12 +1,15 @@
 //LAURA S. TEKEMÄ SIVU
 
-import React from 'react';
+import React, { useState } from 'react';
 import Banner from '../inc/Banner';
 import Logo from '../inc/logo';
 import '../pages/styles/SignUp.css';
-
+import axios from 'axios';
 
 function SignUp(){
+
+      
+
     return(
 
         <div>
@@ -31,19 +34,23 @@ function SignUp(){
                         <h6>You'll receive fantastic benefits, and the shopping experience is made easier. </h6>
                         <hr />
                         <div className="form-group">
-                            <label className="mb-1">First Name</label>
+                            <label className="fname">First Name</label>
                             <input type="text" className="form-control" placeholder="" /> 
                         </div>
                         <div className="form-group">
-                            <label className="mb-1">Last Name</label>
+                            <label className="lname">Last Name</label>
                             <input type="text" className="form-control" placeholder="" /> 
                         </div>
                         <div className="form-group">
-                            <label className="mb-1">Email</label>
+                            <label className="email">Email</label>
                             <input type="text" className="form-control" placeholder="" /> 
                         </div>
                         <div className="form-group">
-                            <label className="mb-1">Password</label>
+                            <label className="uname">Username</label>
+                            <input type="text" className="form-control" placeholder="" /> 
+                        </div>
+                        <div className="form-group">
+                            <label className="pw">Password</label>
                             <input type="text" className="form-control" placeholder="" /> 
                         </div>
                         <br/>

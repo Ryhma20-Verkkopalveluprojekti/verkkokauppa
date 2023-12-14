@@ -4,6 +4,7 @@ import Logo from '../inc/logo';
 import '../pages/styles/About.css';
 import Image4 from '../images/kultakoynnoskuvaUUSI.jpg';
 import Image5 from '../images/kasviasetelma2UUSI.jpg';
+import {Link} from 'react-router-dom';
 
 function Aboutus(){
     return(
@@ -34,7 +35,9 @@ function Aboutus(){
                                 There are three of us working on this business and in the future we hope that
                                 there is a chance to hire more staff to our awesome team!
 
-                                </p>
+                                </p><br/>
+                    
+                               <Link to="/stores" className="btn btn shadow" style={{ backgroundColor: "#364d1c", color: "#ffffff" }}> Chekout our retail stores </Link><br />
                             </div>
 
                             <div className="col-md-4 text-center">

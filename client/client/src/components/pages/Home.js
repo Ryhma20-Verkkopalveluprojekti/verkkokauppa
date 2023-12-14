@@ -47,9 +47,7 @@ function Home(){
                 <p className="customtext">
                 Here you can vote your favorite plant. This helps us to target discounts!
                 </p>
-            
-                <Link to="/vote"  className="btn btn shadow" style={{ backgroundColor: "#364d1c", color: "#ffffff" }}> Vote your favorite plant!</Link>
-                
+                <Link to="/vote" className="btn btn shadow" style={{ backgroundColor: "#364d1c", color: "#ffffff" }}> Vote your favorite plant!</Link><br />
 
                 </div>
                 </div>

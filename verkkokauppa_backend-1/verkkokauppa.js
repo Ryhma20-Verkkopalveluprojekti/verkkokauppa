@@ -109,6 +109,27 @@ app.post('/favorites', async (req, res) => {
  * 
  */
 
+//TEKIJÄ LAURA SAVOLAINEN -->
+app.get('/stores', async (req, res) => {
+    const connection = await mysql.createConnection(conf); // Yhteys tietokantaan
+  
+    try {
+      connection.beginTransaction();
+  
+      
+      const [rows] = await connection.execute("SELECT city, address, zip_code, phone FROM stores");
+      console.log(rows);
+  
+      connection.commit();
+      res.json(rows);
+    } catch (err) {
+      connection.rollback();
+      console.error('Error selecting from stores:', err);
+      res.status(500).json({ error: err.message });
+    } 
+  });
+  
+//LAURA S. OSUUS LOPPUU
 
 
 app.get('/customer', async(req,res) => {
