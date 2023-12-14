@@ -34,6 +34,9 @@ function Navbar({ cartItems }) {
               <Link to="/contact" className="nav-link active" style={{ color: '#ffffff', fontSize: '25px' }}>Contact</Link>
             </li>
             <li className="nav-item">
+              <Link to="/signup" className="nav-link active" style={{ color: '#ffffff', fontSize: '25px' }}>Sign up</Link>
+            </li>
+            <li className="nav-item">
               <Link to="/cart" className="nav-link active" style={{ color: '#ffffff', fontSize: '25px' }}>
                 <FaBasketShopping />
                 {/* Näyttää ostoskorikuvakkeen vieressä tuotteiden lukumäärän*/}

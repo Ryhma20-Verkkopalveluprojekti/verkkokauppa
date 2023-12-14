@@ -87,6 +87,10 @@ function ShoppingCart({ cartItems }) {
                                             <input type="text" className="form-control" placeholder="Enter Email" />
                                         </div>
                                         <div className="form-group">
+                                            <label className="mb-1">Use the discount code</label>
+                                            <input type="text" className="form-control" placeholder="Enter code" />
+                                        </div>
+                                        <div className="form-group">
                                             <label className="mb-1">Payment</label>
                                             <select className="form-control">
                                                 <option value="creditCard">Credit Card</option>
