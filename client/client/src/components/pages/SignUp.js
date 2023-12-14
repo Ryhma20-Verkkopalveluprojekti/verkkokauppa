@@ -41,7 +41,12 @@ function SignUp(){
                         <div className="form-group">
                             <label className="mb-1">Email</label>
                             <input type="text" className="form-control" placeholder="" /> 
-                        </div><br/>
+                        </div>
+                        <div className="form-group">
+                            <label className="mb-1">Password</label>
+                            <input type="text" className="form-control" placeholder="" /> 
+                        </div>
+                        <br/>
                         <div className="form-group">
                          <input type="radio" id="subscribeNL" className="subscribe" value="SubscribeNL"/>
                          <label for="SubscribeNL">Subscribe to our newsletter for the latest news!</label><br/>
