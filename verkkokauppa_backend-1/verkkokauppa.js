@@ -79,6 +79,38 @@ app.get('/categories', async (req, res) => {
     }
 });
 
+
+
+/** NIINAN TEKEMÄ
+ * 
+ */
+
+app.post('/favorites', async (req, res) => {
+    const connection = await mysql.createConnection(conf); //yhteys tietokantaan
+ 
+    try {
+        connection.beginTransaction();
+        const favorites = req.body.favorites;
+
+        //lisätään suosikkikasvit favorite-taulun favorite_plant-sarakkeeseen
+        await connection.execute("INSERT INTO favorite (favorite_plant) VALUES (?)", [favorites]);
+ 
+        connection.commit();
+        res.status(200).send("Favorite added!");
+ 
+    } catch (err) { //error viesti, jos ei onnistu
+        connection.rollback();
+        res.status(500).json({ error: err.message });
+    }
+});
+
+
+/** NIINAN TEKEMÄ OSUUS LOPPUU
+ * 
+ */
+
+
+
 app.get('/customer', async(req,res) => {
 
     //Get the bearer token from authorization header
