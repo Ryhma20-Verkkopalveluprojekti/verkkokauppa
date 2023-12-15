@@ -152,6 +152,91 @@ app.get('/stores', async (req, res) => {
 //LAURA SAVOLAINEN OSUUS LOPPUU!
 
 
+
+
+
+
+//LAURA AHOSEN TEKEMÄ OSUUS ALKAA (GET, POST, DELETE): 
+
+
+//Hakee kaikki uutiskirjeen tilaajat tietokannasta
+
+app.get('/newsletter', async (req, res) => {
+    try {
+        //luodaan tietokantayhteys
+        const connection = await mysql.createConnection(conf);
+        //suoritetaan kysely ja haetaan tilaajat
+        const [rows] = await connection.execute("SELECT * FROM newsletter_subscribers");
+        //palautetaan tilaajien tiedot JSON-muodossa
+        res.json(rows);
+    } catch (err) {
+        //käsitellään virheet ja palautetaan virheviesti JSON-muodossa
+        res.status(500).json({ error: err.message });
+    }
+});
+
+
+//Lisätään uutiskirjeen tilaajan sähköposti newsletter_subscriber -tauluun
+app.post('/newsletter', async (req, res) => {
+
+     //luodaan tietokantayhteys
+    const connection = await mysql.createConnection(conf);
+  
+    try {
+        const email = req.body.email; 
+
+         // tietokantatransaktio
+        connection.beginTransaction();
+        //lisätään uusi tilaaja tietokantaan
+        await connection.execute("INSERT INTO newsletter_subscribers (email) VALUES (?)", [email]);
+
+        connection.commit();
+
+        // Palautetaan HTTP 200 OK -vastaus ja ilmoitus onnistuneesta tilauksesta
+        res.status(200).send("Subscribed!");
+  
+    } catch (err) {
+        connection.rollback();
+         //käsitellään virheet ja palautetaan virheviesti JSON-muodossa
+        res.status(500).json({ error: err.message });
+    }
+});
+
+
+// Poistetaan uutiskirjeen tilaaja idn perusteella tietokannasta
+
+app.delete('/newsletter/:id', async (req, res) => {
+    const subscriberId = req.params.id;
+
+    //luodaan tietokantayhteys
+    const connection = await mysql.createConnection(conf);
+
+    try {
+          // tietokantatransaktio
+        connection.beginTransaction();
+
+        //poistetaan tilaaja tietokannasta annetun ID:n perusteella
+        await connection.execute('DELETE FROM newsletter_subscribers WHERE id = ?', [subscriberId]);
+
+        connection.commit();
+
+        // Palautetaan HTTP 200 OK -vastaus ja ilmoitus onnistuneesta poistosta
+        res.status(200).send("Subscriber deleted!");
+
+    } catch (err) {
+        connection.rollback();
+              //käsitellään virheet ja palautetaan virheviesti JSON-muodossa
+        res.status(500).json({ error: err.message });
+    }
+});
+
+
+
+// LAURA AHOSEN TEKEMÄ OSUUS PÄÄTTYYY
+
+
+
+
 app.get('/customer', async(req,res) => {
 
     //Get the bearer token from authorization header
