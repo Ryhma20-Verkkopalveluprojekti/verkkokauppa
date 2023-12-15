@@ -12,12 +12,14 @@ function Contactus() {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+    const [showThankYou, setShowThankYou] = useState(false);
 
     const handleFormSubmit = () => {
         setFullName('');
         setPhoneNumber('');
         setEmail('');
         setMessage('');
+        setShowThankYou(true);
     };
 
 
@@ -65,6 +67,7 @@ function Contactus() {
                                         <div className="form-group py-3">
                                             <button type="button" className="btn btn shadow w-100" style={{ backgroundColor: "#364d1c", color: "#ffffff" }} onClick={handleFormSubmit}>Send</button>
                                         </div>
+                                        {showThankYou && <p>Thank you for your message! We'll get back to you soon.</p>}
                                     </div>
                                     <div className="col-md-6">
                                         <Logo />
