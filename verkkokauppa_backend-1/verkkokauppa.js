@@ -109,14 +109,14 @@ app.post('/favorites', async (req, res) => {
  * 
  */
 
-//TEKIJÄ LAURA SAVOLAINEN -->
+//TEKIJÄ LAURA SAVOLAINEN OMA TOIMINNALLISUUS GET/POST-->
 app.get('/stores', async (req, res) => {
     const connection = await mysql.createConnection(conf); // Yhteys tietokantaan
   
     try {
       connection.beginTransaction();
   
-      
+      //Haetaan myymälöiden tiedot tietokanta taulusta stores
       const [rows] = await connection.execute("SELECT city, address, zip_code, phone FROM stores");
       console.log(rows);
   
@@ -128,8 +128,28 @@ app.get('/stores', async (req, res) => {
       res.status(500).json({ error: err.message });
     } 
   });
+
+  app.post('/dreamcity', async (req, res) => {
+    const connection = await mysql.createConnection(conf); //yhteys tietokantaan
+ 
+    try {
+        connection.beginTransaction();
+        const dreamCity = req.body.dreamCity;
+
+        //Lisätään toivottu kaupungin nimi dream_city tauluun city_name sarakkeeseen
+        await connection.execute("INSERT INTO dream_city (city_name) VALUES (?)", [dreamCity]);
+ 
+        connection.commit();
+        res.status(200).send("We have heard your wishes!");
+ 
+    } catch (err) { //error viesti, jos ei onnistu
+        connection.rollback();
+        res.status(500).json({ error: err.message });
+    }
+});
+
   
-//LAURA S. OSUUS LOPPUU
+//LAURA SAVOLAINEN OSUUS LOPPUU!
 
 
 app.get('/customer', async(req,res) => {

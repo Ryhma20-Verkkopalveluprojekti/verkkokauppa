@@ -5,13 +5,9 @@ import Banner from '../inc/Banner';
 import Logo from '../inc/logo';
 import '../pages/styles/SignUp.css';
 import axios from 'axios';
-
 function SignUp(){
-
       
-
     return(
-
         <div>
         
         {/* Määrittää sivun korkeuden, jotta footer pysyy sivun alalaidassa */}
@@ -56,7 +52,7 @@ function SignUp(){
                         <br/>
                         <div className="form-group">
                          <input type="radio" id="subscribeNL" className="subscribe" value="SubscribeNL"/>
-                         <label for="SubscribeNL">Subscribe to our newsletter for the latest news!</label><br/>
+                         <label for="SubscribeNL">Subscribe to our newsletter for the latest news!</label><br/>
                         </div>
                         <div>
                           <h6> By signing up, you agree to the terms. Please read our privacy policy, which details the collection, use, and sharing of data.</h6>   
@@ -74,15 +70,10 @@ function SignUp(){
                 </div>
             </div>
             </div>
-
-       
             </section>
-            
-        </div>
-        </div>
-    );
+            </div>
+            </div>
+);
+};
 
-}
-
-    
 export default SignUp;
