@@ -60,10 +60,12 @@ function SignUp(){
                             <button type="button" className="btn btn shadow w-100" style={{ backgroundColor: "#364d1c", color: "#ffffff" }} >Sign up</button>
                         </div>
                     </div>
-                    <div className="col-md-6">
-                        <Logo />
+                    <div className="col-md-6" style={{ marginTop: '-70px' }}>
                         <SubscribeNewsletter />
+                        <Logo />
                         </div>
+                        
+                        
                 
                 </div>
                 </div>
