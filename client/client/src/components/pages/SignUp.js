@@ -1,10 +1,13 @@
-//LAURA S. TEKEMÄ SIVU
+//LAURA S. TEKEMÄ SIVU, LAURA A LISÄNNYT UUTISKIRJEEN TILAUKSEN TÄHÄN
 
 import React, { useState } from 'react';
 import Banner from '../inc/Banner';
 import Logo from '../inc/logo';
 import '../pages/styles/SignUp.css';
 import axios from 'axios';
+import SubscribeNewsletter from './SubscribeNewsletter';
+
+
 function SignUp(){
       
     return(
@@ -25,7 +28,7 @@ function SignUp(){
             <div className="card shadow">
             <div className="card-body">
                 <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-md-5">
                         <h1>Join our PlantHouse club!<br/></h1>
                         <h6>You'll receive fantastic benefits, and the shopping experience is made easier. </h6>
                         <hr />
@@ -50,10 +53,6 @@ function SignUp(){
                             <input type="text" className="form-control" placeholder="" /> 
                         </div>
                         <br/>
-                        <div className="form-group">
-                         <input type="radio" id="subscribeNL" className="subscribe" value="SubscribeNL"/>
-                         <label for="SubscribeNL">Subscribe to our newsletter for the latest news!</label><br/>
-                        </div>
                         <div>
                           <h6> By signing up, you agree to the terms. Please read our privacy policy, which details the collection, use, and sharing of data.</h6>   
                         </div>
@@ -63,7 +62,7 @@ function SignUp(){
                     </div>
                     <div className="col-md-6">
                         <Logo />
-                        
+                        <SubscribeNewsletter />
                         </div>
                 
                 </div>

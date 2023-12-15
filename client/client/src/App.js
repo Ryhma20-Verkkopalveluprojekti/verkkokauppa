@@ -13,6 +13,7 @@ import Vote from './components/pages/Vote';
 import Order from './components/inc/Order';
 import SignUp from './components/pages/SignUp';
 import Stores from './components/pages/stores';
+import AdminNewsletter from './components/pages/Adminnewsletter';
 
 
 function App() {
@@ -80,6 +81,10 @@ function App() {
             path="/stores"
             element={<Stores />}
           /> 
+           <Route 
+            path="/adminnewsletter"
+            element={<AdminNewsletter />}
+          />  
         </Routes>
         <Footer />
       </div>
