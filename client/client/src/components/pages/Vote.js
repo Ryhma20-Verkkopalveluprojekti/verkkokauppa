@@ -1,4 +1,4 @@
-// NIINAN TEKEMÄ SIVU
+// NIINA HARJUN TEKEMÄ SIVU
 
 
 import React, { useEffect } from 'react';
@@ -17,6 +17,7 @@ function Vote() {
 
 
     //Tuotteiden näyttäminen/hakeminen tietokannasta
+    //GET-haku
     
     useEffect(() => {
         const params = {
@@ -35,7 +36,8 @@ function Vote() {
             favorites: favoriteName,
         };
 
-        //tuotteiden lisääminen tietokantaan
+        //POST-TOIMINTO
+        //tuotteiden lisääminen tietokantaan, sinne tehty favorites-taulu
         axios
             .post('http://localhost:3001/favorites', data)
             .then((resp) => {
