@@ -21,10 +21,5 @@ h1 {
     font-size: 25px !important;
 }
 
-.card-body {
-    object-fit:scale-down;
-    width:auto;
-    height: 350px;
-  }
 
   
