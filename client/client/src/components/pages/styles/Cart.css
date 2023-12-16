@@ -27,3 +27,12 @@ li{
     font-family: 'Assistant' !important; 
     font-size: 25px !important;
 }
+.order-placed-message {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding: 20px;
+    color: rgb(252, 252, 252);
+    background-color:  #3d6212;
+
+  }

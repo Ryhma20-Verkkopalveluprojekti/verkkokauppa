@@ -20,6 +20,8 @@ function ShoppingCart({ cartItems }) {
     const visa = '#1a1f71';
     const paypal = '#003087';
     const mastercard = '#eb001b';
+
+    
  
     {/* Laskee ostoskorin yhteissumman*/ }
     
@@ -28,7 +30,7 @@ function ShoppingCart({ cartItems }) {
         const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
         return total;
     };
-
+   
 
  
     return (
