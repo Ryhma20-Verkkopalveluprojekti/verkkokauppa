@@ -13,9 +13,11 @@ function Vote() {
     const [products, setProducts] = useState([]);
     const [category, setCategory] = useState('');
     const [favoriteName, setFavoriteName] = useState('');
+    const [thanksMessage, setThanksMessage] = useState('');
 
 
-    {/*Tuotteiden näyttäminen*/ }
+    //Tuotteiden näyttäminen/hakeminen tietokannasta
+    
     useEffect(() => {
         const params = {
             category: category
@@ -33,7 +35,7 @@ function Vote() {
             favorites: favoriteName,
         };
 
-
+        //tuotteiden lisääminen tietokantaan
         axios
             .post('http://localhost:3001/favorites', data)
             .then((resp) => {
@@ -41,9 +43,15 @@ function Vote() {
 
                 //tyhjennetään kenttä
                 setFavoriteName('');
-
+                //Lähetetään kiitos -viesti, jos tieton siirtäminen tietokantaan onnistuu
+                setThanksMessage('Thank you for voting!');
+                //kiitos -viesti näkyvillä kolmen sekunnin ajan
+                setTimeout(() => {
+                    setThanksMessage('');
+                }, 3000);
             })
-            .catch((error) => { //virhe viesti
+            .catch((error) => { 
+                //virhe viesti
                 console.log("Virhe POST-pyynnön aikana:", error);
             });
 
@@ -76,21 +84,26 @@ function Vote() {
                     </div>
                 </section>
 
-                {/* Input-kenttä ja button */}
+                {/* Äänestyksen input-kenttä, button ja kiitos viesti*/}
 
                 <br></br>
 
-                <div className="col-md-6 mx-auto">
+                <div className="col-md-6 mx-auto text-center">
                     <h6>Vote here!</h6>
                     <hr />
                     <div className="form-group">
-                        <label className="mb-1">Write your favorite plants name here</label>
+                        <label className="mb-1">Write the name of your favorite plant here.</label>
                         <input type="text" className="form-control" placeholder="Enter plant name" value={favoriteName} onChange={(e) => setFavoriteName(e.target.value)} />
                     </div>
 
                     <div className="form-group py-3">
                         <button onClick={voteFavorite} type="button" className="btn btn-custom mr-3">Vote!</button>
                     </div>
+                    {thanksMessage && (
+                        <div className="alert alert-success mt-3">
+                            {thanksMessage}
+                        </div>
+                    )}
                 </div>
 
             </div>

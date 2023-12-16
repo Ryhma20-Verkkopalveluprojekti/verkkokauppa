@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Banner from '../inc/Banner';
 import { FaCcVisa } from 'react-icons/fa';
 import { FaCcPaypal } from 'react-icons/fa';
@@ -10,36 +10,43 @@ import '../pages/styles/Cart.css';
 import Order from '../inc/Order';
 
 
-
-
-
- 
 function ShoppingCart({ cartItems }) {
+
+    const [cart, setCart] = useState(cartItems);
  
-    {/* Maksutapa ikonien värit*/ }
+    const setCartItems = (items) => {
+
+  };
+
+    //tyhjentää ostoskorista loppusumman ja tuotteet
+    const clearCart = () => {
+        console.log("Clearing cart...");
+        setCart([]);
+        console.log("Cart cleared:", cart);
+        setCartItems([]);
+      };
+
+
+    // Maksutapa ikonien värit
     const visa = '#1a1f71';
     const paypal = '#003087';
     const mastercard = '#eb001b';
- 
-    {/* Laskee ostoskorin yhteissumman*/ }
-    
+
+    //Laskee ostoskorin yhteissumman
     const calculateTotal = () => {
         // Lasketaan summa käymällä läpi ostoskorin ja lisäämällä tuotteiden hinta kertaa määrä
-        const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+        const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
         return total;
     };
 
-
- 
     return (
         <div>
             {/* Määrittää sivun korkeuden, jotta footer pysyy sivun alalaidassa */}
             <div className="page-content" style={{ minHeight: '100vh' }}>
- 
+
                 {/* Banneri navbarin alla */}
                 <Banner />
- 
- 
+
                 {/* Ostoskorin sisältö */}
                 <section className="section">
                     <div className="container">
@@ -47,19 +54,24 @@ function ShoppingCart({ cartItems }) {
                             <div className="col-md-6">
                                 <h2>Shopping Cart</h2>
                                 <ul>
-                                {cartItems &&
-                                cartItems.map((item, index) => (
-                                <li key={`${item.id}-cart-${index}`}>
-                                 {item.productName} - {item.price} euros x {item.quantity}
-                                </li>
-                                 ))}
+                                    {cart &&
+                                        cart.map((item, index) => (
+                                            <li key={`${item.id}-cart-${index}`}>
+                                                {item.productName} - {item.price} euros x {item.quantity}
+                                            </li>
+                                        ))}
                                 </ul>
                                 <div>
-                                     {/*Näyttää yhteissumman tässä*/ }
+                                    {/*Näyttää yhteissumman tässä*/}
                                     <p className="total-text">Total: {calculateTotal()} euros</p>
+
+                                    {/* Button, joka tyhjentää ostoskorin */}
+                                    <button className="btn btn-custom mr-3" onClick={clearCart}>
+                                        Clear Cart
+                                    </button>
                                 </div>
                             </div>
- 
+
                             {/* Tilauslomake */}
                             <div className="col-md-6">
                                 <div className="card shadow">
@@ -115,7 +127,7 @@ function ShoppingCart({ cartItems }) {
                                                 </label>
                                             </div>
                                             <div className="form-group py-3">
-                                              <Order cartItems={cartItems}/>
+                                                <Order cartItems={cartItems} />
                                             </div>
                                         </div>
                                         <div className="col-md-11 text-right">
@@ -138,5 +150,5 @@ function ShoppingCart({ cartItems }) {
         </div>
     );
 }
- 
+
 export default ShoppingCart;
