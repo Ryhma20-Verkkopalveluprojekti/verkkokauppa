@@ -109,7 +109,7 @@ app.post('/favorites', async (req, res) => {
  * 
  */
 
-//TEKIJÄ LAURA SAVOLAINEN OMA TOIMINNALLISUUS GET/POST-->
+//TEKIJÄ LAURA SAVOLAINEN OMA TOIMINNALLISUUS,  GET/POST PARAMETRIT-->
 
      //GET-toiminto
      // Yhteys tietokantaan
