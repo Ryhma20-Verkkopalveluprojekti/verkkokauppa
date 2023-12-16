@@ -7,7 +7,6 @@ import { useState } from 'react';
 import Discount from '../inc/Discount';
 import  ShoppingCart from '../pages/Cart.js';
 
-
 {/*Ostoskori, app.js tiedostoon lisätty määritys joka piilottaa ostoskori näkymän tältä sivulta, näkyy vain cart.js sivulla*/ }
 function Shop({ setCartItems, cartItems }) {
     const ShoppingCart = ({ cartItems }) => (
@@ -24,43 +23,47 @@ function Shop({ setCartItems, cartItems }) {
     
     const [products, setProducts] = useState([]);
     const [category, setCategory] = useState('Small plants');
+    const [addedToCartMessage, setAddedToCartMessage] = useState('');
 
     {/* Tuotteiden lisääminen ostoskoriin*/ }
-
     // const addToCart = (productId, productName, productPrice) => {
-    //     const newCartItem = { id: productId, name: productName, price: productPrice };
-    //     setCartItems((prevItems) => [...prevItems, newCartItem]);
+    // const newCartItem = { id: productId, name: productName, price: productPrice };
+    // setCartItems((prevItems) => [...prevItems, newCartItem]);
     // };
-
     function updateProductCart(product){
         const cItems = [...cartItems];
         const prod = cItems.find( p => p.id === product.id );
-
         if( prod ){
             prod.quantity++;
             setCartItems(cItems);
         }else{
             setCartItems((prevItems) => [...prevItems, {...product, quantity: 1}]);
         }
+        setAddedToCartMessage(`${product.productName} lisätty ostoskoriin!`);
+        setTimeout(() => {
+            setAddedToCartMessage('');
+        }, 3000);
     }
-
     {/* Tuotekategorian valitseminen/näyttäminen*/ }
     useEffect(() => {
         const params = {
             category: category
         };
-
         axios.get('http://localhost:3001/products', { params: params })
             .then(resp => setProducts(resp.data))
             .catch(error => console.log(error.message));
     }, [category]);
-
     return (
         <div>
             <div className="page-content" style={{ minHeight: '100vh' }}>
                 <Banner />
                 <Discount />
                 <ShoppingCart cartItems={cartItems} />
+                {addedToCartMessage && (
+                    <div className="added-to-cart-message">
+                        {addedToCartMessage}
+                    </div>
+                    )}
                 <section className="section">
                     <div className="container">
                         <div className="row">
@@ -108,5 +111,4 @@ function Shop({ setCartItems, cartItems }) {
         </div>
     );
 }
-
 export default Shop;
