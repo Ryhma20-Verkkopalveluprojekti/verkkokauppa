@@ -23,6 +23,7 @@ function Shop({ setCartItems, cartItems }) {
     
     const [products, setProducts] = useState([]);
     const [category, setCategory] = useState('Small plants');
+    //Viesti, kun tuote lisätty ostoskoriin
     const [addedToCartMessage, setAddedToCartMessage] = useState('');
 
     {/* Tuotteiden lisääminen ostoskoriin*/ }
@@ -39,7 +40,9 @@ function Shop({ setCartItems, cartItems }) {
         }else{
             setCartItems((prevItems) => [...prevItems, {...product, quantity: 1}]);
         }
-        setAddedToCartMessage(`${product.productName} lisätty ostoskoriin!`);
+        //Viesti "tuote lisätty ostoskoriin", kun tuote lisätty ostoskoriin
+        setAddedToCartMessage(`${product.productName} added to shoppingcart!`);
+        //Viesti näytetään 3 sekuntia
         setTimeout(() => {
             setAddedToCartMessage('');
         }, 3000);
