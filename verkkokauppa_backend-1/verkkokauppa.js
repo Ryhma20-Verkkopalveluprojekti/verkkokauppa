@@ -110,8 +110,11 @@ app.post('/favorites', async (req, res) => {
  */
 
 //TEKIJÄ LAURA SAVOLAINEN OMA TOIMINNALLISUUS GET/POST-->
-app.get('/stores', async (req, res) => {
-    const connection = await mysql.createConnection(conf); // Yhteys tietokantaan
+
+     //GET-toiminto
+     // Yhteys tietokantaan
+    app.get('/stores', async (req, res) => {
+    const connection = await mysql.createConnection(conf); 
   
     try {
       connection.beginTransaction();
@@ -128,9 +131,10 @@ app.get('/stores', async (req, res) => {
       res.status(500).json({ error: err.message });
     } 
   });
-
-  app.post('/dreamcity', async (req, res) => {
-    const connection = await mysql.createConnection(conf); //yhteys tietokantaan
+      //POST-toiminto
+     //Yhteys tietokantaan
+    app.post('/dreamcity', async (req, res) => {
+    const connection = await mysql.createConnection(conf); 
  
     try {
         connection.beginTransaction();
@@ -141,8 +145,8 @@ app.get('/stores', async (req, res) => {
  
         connection.commit();
         res.status(200).send("We have heard your wishes!");
- 
-    } catch (err) { //error viesti, jos ei onnistu
+       //Error viesti, jos ei onnistu
+    } catch (err) { 
         connection.rollback();
         res.status(500).json({ error: err.message });
     }

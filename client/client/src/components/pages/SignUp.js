@@ -18,7 +18,7 @@ function SignUp(){
         
             {/* Banneri navbarin alla */}
             <Banner />
-           
+           {/*Rekisteröinti lomake */}
            <div className="col-md-12 text-center" style={{fontFamily: 'sans-serif', fontWeight: 'bold', fontSize: '20px', paddingTop: '50px', paddingBottom: '15px' }}>
             
            </div>
@@ -60,6 +60,7 @@ function SignUp(){
                             <button type="button" className="btn btn shadow w-100" style={{ backgroundColor: "#364d1c", color: "#ffffff" }} >Sign up</button>
                         </div>
                     </div>
+                    {/*Uutiskirjeen tilaus ja logo */}
                     <div className="col-md-6" style={{ marginTop: '-70px' }}>
                         <SubscribeNewsletter />
                         <Logo />

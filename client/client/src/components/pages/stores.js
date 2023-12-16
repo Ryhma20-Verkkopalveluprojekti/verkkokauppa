@@ -5,7 +5,7 @@ import Logo from '../inc/logo';
 import axios from 'axios';
 import './styles/stores.css';
 
-// Haetaan myymälät tietokannasta, näytetään ne selaimessa, lisätään oma toive kaupunki input kenttään, joka vie sen tietokantaan
+// Haetaan myymälät tietokannasta, näytetään ne selaimessa, lisätään oma toive kaupunki input kenttään, joka vie tiedon tietokantaan
 
 function Stores() {
   const [stores, setStores] = useState([]);
@@ -23,26 +23,28 @@ function Stores() {
         console.error('Error fetching store data:', error);
       });
   }, []); 
-
+  //Myymälätoive-tiedon käsittely
   function dreamCityHandler() {
     const requestData = {
       dreamCity: dreamCityInput,
     };
-
-    axios //Viedään toivemyymälän tiedot tietokantaan ja lähetetään error/success viesti
+    //Viedään toivemyymälän tiedot tietokantaan 
+    axios 
       .post('http://localhost:3001/dreamcity', requestData)
       .then((resp) => {
         console.log(resp.data);
         setDreamCityInput('');
         setError('');
+        //Lähetetään success -viesti, jos tieto lähetettiin onnistuneesti tietokantaan
         setSuccessMessage('Thank you! We have heard your wishes!');
       })
+      //Lähetetään error -viesti, jos tietoa ei saatu lähetettyä
       .catch((error) => {
         console.log("Virhe POST-pyynnön aikana:", error);
         setError('Something went wrong.');
       });
   }
-
+  //stores -sivun sisältö selaimessa
   return (
     <div>
       <div className="page-content" style={{ minHeight: '100vh' }}>
@@ -58,8 +60,9 @@ function Stores() {
                   <div className="row">
                     <h1>PlantHouse retail stores</h1><br/>
                     <h3>You can find our products in a few of our retail stores!</h3><br/>
+                    {/*Näytetään myymälät ja niiden tiedot*/}
                     {stores.length > 0 ? (
-                      stores.map(store => ( //Näytetään myymälät ja niiden tiedot
+                      stores.map(store => ( 
                         <div key={store.id} className="col-md-4 mb-4">
                           <div className="card shadow">
                             <div className="card-body">
@@ -75,7 +78,8 @@ function Stores() {
                         </div>
                       ))
                     ) : (
-                      <p>No stores found</p> //virhe ilmoitus, jos myymälöiden tietoja ei löydy
+                      //virhe ilmoitus, jos myymälöiden tietoja ei löydy
+                      <p>No stores found</p> 
                     )}
                   </div>
                 </div>
@@ -83,12 +87,16 @@ function Stores() {
               <div className="col-md-6 mx-auto">
                 <h6>We are expanding our business!</h6>
                 <hr />
-                <div className="form-group">{/*Input ja button toivemyymälä tiedon lähettämiseen */}
+                {/*Input ja button toivemyymälä tiedon lähettämiseen */}
+                <div className="form-group">
                   <label className="mb-1">In which city would you like to see our next store opening?</label><br/><br/>
                   <input type="text" className="form-control" placeholder="Enter city name" value={dreamCityInput} onChange={(e) => setDreamCityInput(e.target.value)} />
-                  {error && <p style={{ color: 'red' }}>{error}</p>}<br/> {/*Näytetään error viesti, jos yhteys tietokantaan epäonnistuu*/}
-                  {successMessage && <p style={{ fontSize:'40px', color: '#364d1c' }}>{successMessage}</p>}{/*Näytetään Success viesti, jos tiedon lähettäminentietokantaan onnistui*/}
+                  {/*Näytetään error viesti, jos yhteys tietokantaan epäonnistuu*/}
+                  {error && <p style={{ color: 'red' }}>{error}</p>}<br/> 
+                  {/*Näytetään Success viesti, jos tiedon lähettäminentietokantaan onnistui*/}
+                  {successMessage && <p style={{ fontSize:'40px', color: '#364d1c' }}>{successMessage}</p>}
                 </div>
+                {/*Button painike tiedon lähettämiseen*/}
                 <div className="form-group py-3">
                   <button onClick={dreamCityHandler} type="button" className="btn btn-custom mr-3">Send!</button>
                 </div>
