@@ -36,3 +36,6 @@ li{
     background-color:  #3d6212;
 
   }
+  .shopping-cart-list {
+    list-style-type: none;
+  }

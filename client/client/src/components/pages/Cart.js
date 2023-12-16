@@ -8,6 +8,8 @@ import { SiAmericanexpress } from 'react-icons/si';
 import { SiSamsungpay } from 'react-icons/si';
 import '../pages/styles/Cart.css';
 import Order from '../inc/Order';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLeaf } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -48,13 +50,13 @@ function ShoppingCart({ cartItems }) {
                         <div className="row">
                             <div className="col-md-6">
                                 <h2>Shopping Cart</h2>
-                                <ul>
-                                {cartItems &&
-                                cartItems.map((item, index) => (
-                                <li key={`${item.id}-cart-${index}`}>
-                                 {item.productName} - {item.price} euros x {item.quantity}
-                                </li>
-                                 ))}
+                                <ul className="shopping-cart-list">
+                                    {cartItems &&
+                                        cartItems.map((item, index) => (
+                                            <li key={`${item.id}-cart-${index}`}>
+                                                <FontAwesomeIcon icon={faLeaf} /> {item.productName} - {item.price} euros x {item.quantity}
+                                            </li>
+                                        ))}
                                 </ul>
                                 <div>
                                      {/*Näyttää yhteissumman tässä*/ }

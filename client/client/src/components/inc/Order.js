@@ -3,6 +3,7 @@ import axios from 'axios';
 import Cart from '../pages/Cart';
 import ShoppingCart from '../pages/Cart';
 
+
 function Order({ cartItems }) {
   const [orderPlaced, setOrderPlaced] = useState(false);
 
