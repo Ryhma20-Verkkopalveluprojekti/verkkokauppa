@@ -41,7 +41,7 @@ function Shop({ setCartItems, cartItems }) {
             setCartItems((prevItems) => [...prevItems, {...product, quantity: 1}]);
         }
         //Viesti "tuote lisätty ostoskoriin", kun tuote lisätty ostoskoriin
-        setAddedToCartMessage(`${product.productName} added to shoppingcart!`);
+        setAddedToCartMessage(`${product.productName} added to cart!`);
         //Viesti näytetään 3 sekuntia
         setTimeout(() => {
             setAddedToCartMessage('');
