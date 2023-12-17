@@ -81,8 +81,9 @@ app.get('/categories', async (req, res) => {
 
 
 
-/** NIINAN TEKEMÄ
- * 
+/** NIINA HARJU/ OMA TOIMINNALLISUUS !!!
+ *  GET-haut sovellettu valmiista yllä olevasta "app.get('/categories'" (vote.js)
+ *  POST-toiminto tässä alla 
  */
 
 app.post('/favorites', async (req, res) => {
