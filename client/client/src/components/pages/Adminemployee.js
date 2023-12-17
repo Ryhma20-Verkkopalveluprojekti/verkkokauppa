@@ -30,9 +30,7 @@ function Adminemployee() {
             <div className="container center-text">
               <div className="row">
                 <div className="col-md-10">
-                  <div className="top-right"> 
-                    <Logo />{/*Logo */}
-                  </div>
+                  
                   <section className="section">
                     <div className="container">
                       <div className="row"> 
