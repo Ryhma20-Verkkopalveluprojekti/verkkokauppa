@@ -45,14 +45,14 @@ app.get('/products', async (req, res) => {
 
         const category = req.query.category;
 
-        let result;        
+        let result;
 
-        if(category){
+        if (category) {
             result = await connection.execute("SELECT id, product_name productName, price, image_url imageUrl, category  FROM product WHERE category=?", [category]);
-        }else{
+        } else {
             result = await connection.execute("SELECT id, product_name productName, price, image_url imageUrl, category  FROM product");
         }
-        
+
         //First index in the result contains the rows in an array
         res.json(result[0]);
 
@@ -81,24 +81,41 @@ app.get('/categories', async (req, res) => {
 
 
 
-/** NIINA HARJU/ OMA TOIMINNALLISUUS !!!
- *  GET-haut sovellettu valmiista yllä olevasta "app.get('/categories'" (vote.js)
- *  POST-toiminto tässä alla 
- */
+// NIINA HARJU / OMA TOIMINNALLISUUS !!!
+
+//GET-TOIMINTO
+
+// Yhteys tietokantaan
+app.get('/employee', async (req, res) => {
+
+    try {
+        const connection = await mysql.createConnection(conf);
+
+        const [rows] = await connection.execute("SELECT first_name, last_name, city FROM employee");
+
+        res.json(rows);
+
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+
+//POST TOIMINTO
 
 app.post('/favorites', async (req, res) => {
     const connection = await mysql.createConnection(conf); //yhteys tietokantaan
- 
+
     try {
         connection.beginTransaction();
         const favorites = req.body.favorites;
 
         //lisätään suosikkikasvit favorite-taulun favorite_plant-sarakkeeseen
         await connection.execute("INSERT INTO favorite (favorite_plant) VALUES (?)", [favorites]);
- 
+
         connection.commit();
         res.status(200).send("Favorite added!");
- 
+
     } catch (err) { //error viesti, jos ei onnistu
         connection.rollback();
         res.status(500).json({ error: err.message });
@@ -106,54 +123,53 @@ app.post('/favorites', async (req, res) => {
 });
 
 
-/** NIINAN TEKEMÄ OSUUS LOPPUU
- * 
- */
+// NIINAN TEKEMÄ OSUUS LOPPUU
+
 
 //TEKIJÄ LAURA SAVOLAINEN OMA TOIMINNALLISUUS,  GET/POST PARAMETRIT-->
 
-     //GET-toiminto
-     // Yhteys tietokantaan
-    app.get('/stores', async (req, res) => {
-    const connection = await mysql.createConnection(conf); 
-  
+//GET-toiminto
+// Yhteys tietokantaan
+app.get('/stores', async (req, res) => {
+    const connection = await mysql.createConnection(conf);
+
     try {
-      connection.beginTransaction();
-  
-      //Haetaan myymälöiden tiedot tietokanta taulusta stores
-      const [rows] = await connection.execute("SELECT city, address, zip_code, phone FROM stores");
-      console.log(rows);
-  
-      connection.commit();
-      res.json(rows);
+        connection.beginTransaction();
+
+        //Haetaan myymälöiden tiedot tietokanta taulusta stores
+        const [rows] = await connection.execute("SELECT city, address, zip_code, phone FROM stores");
+        console.log(rows);
+
+        connection.commit();
+        res.json(rows);
     } catch (err) {
-      connection.rollback();
-      console.error('Error selecting from stores:', err);
-      res.status(500).json({ error: err.message });
-    } 
-  });
-      //POST-toiminto
-     //Yhteys tietokantaan
-    app.post('/dreamcity', async (req, res) => {
-    const connection = await mysql.createConnection(conf); 
- 
+        connection.rollback();
+        console.error('Error selecting from stores:', err);
+        res.status(500).json({ error: err.message });
+    }
+});
+//POST-toiminto
+//Yhteys tietokantaan
+app.post('/dreamcity', async (req, res) => {
+    const connection = await mysql.createConnection(conf);
+
     try {
         connection.beginTransaction();
         const dreamCity = req.body.dreamCity;
 
         //Lisätään toivottu kaupungin nimi dream_city tauluun city_name sarakkeeseen
         await connection.execute("INSERT INTO dream_city (city_name) VALUES (?)", [dreamCity]);
- 
+
         connection.commit();
         res.status(200).send("We have heard your wishes!");
-       //Error viesti, jos ei onnistu
-    } catch (err) { 
+        //Error viesti, jos ei onnistu
+    } catch (err) {
         connection.rollback();
         res.status(500).json({ error: err.message });
     }
 });
 
-  
+
 //LAURA SAVOLAINEN OSUUS LOPPUU!
 
 
@@ -184,13 +200,13 @@ app.get('/newsletter', async (req, res) => {
 //Lisätään uutiskirjeen tilaajan sähköposti newsletter_subscriber -tauluun
 app.post('/newsletter', async (req, res) => {
 
-     //luodaan tietokantayhteys
+    //luodaan tietokantayhteys
     const connection = await mysql.createConnection(conf);
-  
-    try {
-        const email = req.body.email; 
 
-         // tietokantatransaktio
+    try {
+        const email = req.body.email;
+
+        // tietokantatransaktio
         connection.beginTransaction();
         //lisätään uusi tilaaja tietokantaan
         await connection.execute("INSERT INTO newsletter_subscribers (email) VALUES (?)", [email]);
@@ -199,10 +215,10 @@ app.post('/newsletter', async (req, res) => {
 
         // Palautetaan HTTP 200 OK -vastaus ja ilmoitus onnistuneesta tilauksesta
         res.status(200).send("Subscribed!");
-  
+
     } catch (err) {
         connection.rollback();
-         //käsitellään virheet ja palautetaan virheviesti JSON-muodossa
+        //käsitellään virheet ja palautetaan virheviesti JSON-muodossa
         res.status(500).json({ error: err.message });
     }
 });
@@ -217,7 +233,7 @@ app.delete('/newsletter/:id', async (req, res) => {
     const connection = await mysql.createConnection(conf);
 
     try {
-          // tietokantatransaktio
+        // tietokantatransaktio
         connection.beginTransaction();
 
         //poistetaan tilaaja tietokannasta annetun ID:n perusteella
@@ -230,7 +246,7 @@ app.delete('/newsletter/:id', async (req, res) => {
 
     } catch (err) {
         connection.rollback();
-              //käsitellään virheet ja palautetaan virheviesti JSON-muodossa
+        //käsitellään virheet ja palautetaan virheviesti JSON-muodossa
         res.status(500).json({ error: err.message });
     }
 });
@@ -242,18 +258,18 @@ app.delete('/newsletter/:id', async (req, res) => {
 
 
 
-app.get('/customer', async(req,res) => {
+app.get('/customer', async (req, res) => {
 
     //Get the bearer token from authorization header
     const token = req.headers.authorization.split(' ')[1];
 
     //Verify the token. Verified token contains username
-    try{
+    try {
         const username = jwt.verify(token, process.env.JWT_KEY).username;
         const connection = await mysql.createConnection(conf);
-        const [rows] = await connection.execute('SELECT first_name fname, last_name lname, username FROM customer WHERE username=?',[username]);
+        const [rows] = await connection.execute('SELECT first_name fname, last_name lname, username FROM customer WHERE username=?', [username]);
         res.status(200).json(rows[0]);
-    }catch(err){
+    } catch (err) {
         console.log(err.message);
         res.status(403).send('Access forbidden.');
     }
@@ -267,14 +283,14 @@ app.post('/categories', async (req, res) => {
     const connection = await mysql.createConnection(conf);
 
     try {
-        
+
         connection.beginTransaction();
         const categories = req.body;
-        
+
         for (const category of categories) {
-            await connection.execute("INSERT INTO product_category VALUES (?,?)",[category.categoryName, category.description]);
+            await connection.execute("INSERT INTO product_category VALUES (?,?)", [category.categoryName, category.description]);
         }
-    
+
         connection.commit();
         res.status(200).send("Categories added!");
 
@@ -292,15 +308,15 @@ app.post('/products', async (req, res) => {
     const connection = await mysql.createConnection(conf);
 
     try {
-        
+
         connection.beginTransaction();
         const products = req.body;
-        
+
 
         for (const product of products) {
-            await connection.execute("INSERT INTO product (product_name, price, image_url,category) VALUES (?,?,?,?)",[product.productName, product.price, product.imageUrl, product.category]);
+            await connection.execute("INSERT INTO product (product_name, price, image_url,category) VALUES (?,?,?,?)", [product.productName, product.price, product.imageUrl, product.category]);
         }
-    
+
         connection.commit();
         res.status(200).send("Products added!");
 
@@ -324,17 +340,17 @@ app.post('/order', async (req, res) => {
 
         const order = req.body;
         const date = new Date();
-        
-        const [info] = await connection.execute("INSERT INTO customer_order (order_date, customer_id) VALUES (?,?)",[date, order.customerId]);
-        
+
+        const [info] = await connection.execute("INSERT INTO customer_order (order_date, customer_id) VALUES (?,?)", [date, order.customerId]);
+
         const orderId = info.insertId;
 
         for (const product of order.products) {
-            await connection.execute("INSERT INTO order_line (order_id, product_id, quantity) VALUES (?,?,?)",[orderId, product.id, product.quantity]);            
+            await connection.execute("INSERT INTO order_line (order_id, product_id, quantity) VALUES (?,?,?)", [orderId, product.id, product.quantity]);
         }
 
         connection.commit();
-        res.status(200).json({orderId: orderId});
+        res.status(200).json({ orderId: orderId });
 
     } catch (err) {
         connection.rollback();
@@ -349,7 +365,7 @@ app.post('/order', async (req, res) => {
 /**
  * Registers user. Supports urlencoded and multipart
  */
-app.post('/register', upload.none(), async (req,res) => {
+app.post('/register', upload.none(), async (req, res) => {
     const fname = req.body.fname;
     const lname = req.body.lname;
     const uname = req.body.username;
@@ -360,7 +376,7 @@ app.post('/register', upload.none(), async (req,res) => {
 
         const pwHash = await bcrypt.hash(pw, 10);
 
-        const [rows] = await connection.execute('INSERT INTO customer(first_name,last_name,username,pw) VALUES (?,?,?,?)',[fname,lname,uname,pwHash]);
+        const [rows] = await connection.execute('INSERT INTO customer(first_name,last_name,username,pw) VALUES (?,?,?,?)', [fname, lname, uname, pwHash]);
 
         res.status(200).end();
 
@@ -384,15 +400,15 @@ app.post('/login', upload.none(), async (req, res) => {
 
         const [rows] = await connection.execute('SELECT pw FROM customer WHERE username=?', [uname]);
 
-        if(rows.length > 0){
+        if (rows.length > 0) {
             const isAuth = await bcrypt.compare(pw, rows[0].pw);
-            if(isAuth){
-                const token = jwt.sign({username: uname}, process.env.JWT_KEY);
-                res.status(200).json({jwtToken: token});
-            }else{
+            if (isAuth) {
+                const token = jwt.sign({ username: uname }, process.env.JWT_KEY);
+                res.status(200).json({ jwtToken: token });
+            } else {
                 res.status(401).end('User not authorized');
             }
-        }else{
+        } else {
             res.status(404).send('User not found');
         }
 
@@ -405,23 +421,23 @@ app.post('/login', upload.none(), async (req, res) => {
 /**
  * Gets orders of the customer
  */
-app.get('/orders', async (req,res) => {
-    
+app.get('/orders', async (req, res) => {
+
     //Get the bearer token from authorization header
     const token = req.headers.authorization.split(' ')[1];
 
     //Verify the token. Verified token contains username
-    try{
+    try {
         const username = jwt.verify(token, process.env.JWT_KEY).username;
         const orders = await getOrders(username);
         res.status(200).json(orders);
-    }catch(err){
+    } catch (err) {
         console.log(err.message);
         res.status(403).send('Access forbidden.');
     }
 });
 
-async function getOrders(username){
+async function getOrders(username) {
     try {
         const connection = await mysql.createConnection(conf);
         const [rows] = await connection.execute('SELECT customer_order.order_date AS date, customer_order.id as orderId FROM customer_order INNER JOIN customer ON customer.id = customer_order.customer_id WHERE customer.username=?', [username]);
@@ -431,7 +447,7 @@ async function getOrders(username){
         for (const row of rows) {
             const [products] = await connection.execute("SELECT id,product_name productName,price,image_url imageUrl, category, quantity  FROM product INNER JOIN order_line ON order_line.product_id = product.id WHERE order_line.order_id=?", [row.orderId]);
 
-            let order ={
+            let order = {
                 orderDate: row.date,
                 orderId: row.orderId,
                 products: products

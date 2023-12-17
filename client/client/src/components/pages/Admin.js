@@ -5,6 +5,7 @@ import '../pages/styles/Admin.css';
 import axios from 'axios';
 import { useState } from 'react';
 import Adminnewsletter from './Adminnewsletter';
+import Adminemployee from './Adminemployee';
 
 function Admin(){
 
@@ -79,6 +80,7 @@ function Admin(){
        
             </section>
             <Adminnewsletter />
+            <Adminemployee />
         </div>
         
         </div>
