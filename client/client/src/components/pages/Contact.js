@@ -67,7 +67,9 @@ function Contactus() {
                                         <div className="form-group py-3">
                                             <button type="button" className="btn btn shadow w-100" style={{ backgroundColor: "#364d1c", color: "#ffffff" }} onClick={handleFormSubmit}>Send</button>
                                         </div>
+                                        <div className='thank-you-message'>
                                         {showThankYou && <p>Thank you for your message! We'll get back to you soon.</p>}
+                                        </div>
                                     </div>
                                     <div className="col-md-6">
                                         <Logo />

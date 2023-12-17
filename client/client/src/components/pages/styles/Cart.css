@@ -34,6 +34,7 @@ li{
     padding: 20px;
     color: rgb(252, 252, 252);
     background-color:  #3d6212;
+    border-radius: 5px;
 
   }
   .shopping-cart-list {
